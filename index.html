@@ -71,6 +71,7 @@
             padding: 10px 24px; border-radius: 30px; color: #fff !important;
             box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
             animation: pulse-btn 2s infinite;
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
         }
         @keyframes pulse-btn {
             0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.5); }
@@ -88,7 +89,7 @@
             padding: 0 20px;
         }
 
-        .hero-content { position: relative; z-index: 10; max-width: 900px; }
+        .hero-content { position: relative; z-index: 10; max-width: 900px; margin-top: 50px; }
         .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
         .hero h1 span { background: linear-gradient(to right, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 1.2rem; color: #9ca3af; margin-bottom: 40px; }
@@ -175,9 +176,12 @@
 
         /* --- MOBİL UYUM (Responsive) --- */
         @media (max-width: 900px) {
-            .nav-links { display: none; } /* Mobilde menüyü gizle (basitlik için) */
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
+            .nav-links a:not(.btn-sablonlar) { display: none; } 
+            .nav-links { gap: 0; }
+            .btn-sablonlar { padding: 8px 16px; font-size: 0.85rem; }
+            
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 0.95rem; }
             .drone-container { font-size: 50px; }
             section { padding: 60px 20px; }
             .floating-contact { bottom: 15px; right: 15px; }
@@ -202,7 +206,7 @@
             <a href="#paketler">Web Paketleri</a>
             <a href="#referanslar">Referanslar</a>
             <a href="#drone">Drone Çekimi</a>
-            <a href="sablonlar.html" class="btn-sablonlar">✨ Hazır Şablonlara Göz At</a>
+            <a href="sablonlar.html" class="btn-sablonlar"><i class="fa-solid fa-layer-group"></i> Hazır Şablonlar</a>
         </nav>
     </header>
 
@@ -214,7 +218,10 @@
         <div class="hero-content">
             <h1>Dijital Dünyada Sınırları <br><span>Gökyüzüne Taşıyoruz</span></h1>
             <p>Üst düzey web tasarım, özel yazılım kodlama, mobil uygulama ve 4K drone çekim teknolojileriyle markanızı rakiplerinizin fersah fersah ötesine taşıyoruz.</p>
-            <a href="#paketler" class="btn-sablonlar" style="display: inline-block; padding: 15px 35px; font-size: 1.1rem;">Web Paketlerini İncele</a>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#paketler" class="btn-sablonlar" style="padding: 15px 35px; font-size: 1.1rem;">Web Paketlerini İncele</a>
+                <a href="sablonlar.html" class="btn-sablonlar" style="padding: 15px 35px; font-size: 1.1rem; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);"><i class="fa-solid fa-eye"></i> Şablonlara Göz At</a>
+            </div>
         </div>
     </section>
 
@@ -304,7 +311,6 @@
         <p style="color:#aaa; margin-bottom: 30px; max-width: 600px; margin-left:auto; margin-right:auto;">Etkinlik, düğün, şantiye ve kurumsal mekan tanıtımlarınız için profesyonel drone pilotaj hizmeti veriyoruz.</p>
         
         <div class="yt-container">
-            <!-- Örnek bir YouTube embed kodu (Bunu kendi videonun iframe koduyla değiştirebilirsin) -->
             <iframe class="yt-iframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Drone Çekimi Tanıtım" allowfullscreen></iframe>
         </div>
         
@@ -319,7 +325,6 @@
         <div class="ref-grid">
             
             <div class="ref-card">
-                <!-- Şimdilik boş gri arkaplan, daha sonra sitelerin ekran görüntülerini koyabilirsin -->
                 <img src="https://via.placeholder.com/400x200/1a1a1a/444444?text=Topcuoglu+Peyzaj" alt="Topçuoğlu Peyzaj">
                 <h4>Topçuoğlu Peyzaj</h4>
                 <a href="https://www.xn--topcuolupeyzaj-l7b.com.tr/" target="_blank">Siteye Git →</a>
