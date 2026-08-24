@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sektörel Web Tasarım Vitrini | Tan Medya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #08090d; color: #f1f5f9; line-height: 1.6; overflow-x: hidden; }
+
+        /* CANLI AJANS ATMOSFERİ IŞIKLARI */
+        body::before {
+            content: ''; position: fixed; top: -150px; left: -150px; width: 500px; height: 500px;
+            background: rgba(245, 158, 11, 0.08); filter: blur(150px); z-index: -1; pointer-events: none;
+        }
+        body::after {
+            content: ''; position: fixed; bottom: -150px; right: -150px; width: 500px; height: 500px;
+            background: rgba(59, 130, 246, 0.08); filter: blur(150px); z-index: -1; pointer-events: none;
+        }
+
+        /* ÜST İMZA BARı (SABİT) */
+        .top-tan-medya-bar {
+            position: sticky; top: 0; z-index: 10000;
+            background: linear-gradient(135deg, #181824, #0f1017); 
+            color: #f59e0b; text-align: center; padding: 10px 15px;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        /* ÜST MENÜ */
+        header {
+            background: rgba(15, 16, 23, 0.85); backdrop-filter: blur(12px);
+            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 37px; z-index: 100;
+        }
+        .logo { font-size: 1.3rem; font-weight: 800; color: #f59e0b; display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .home-btn { background: rgba(255,255,255,0.08); color: #fff; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .home-btn:hover { background: #f59e0b; color: #000; border-color: #f59e0b; }
+
+        /* HERO BÖLÜMÜ */
+        .hero {
+            text-align: center; padding: 80px 20px 40px 20px;
+            background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .hero h1 span { background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #94a3b8; font-size: 1.05rem; max-width: 750px; margin: 0 auto 25px auto; }
+
+        /* KAMPANYA / FİYAT VURGU KUTUSU */
+        .price-badge-container {
+            max-width: 800px; margin: 0 auto 40px auto; padding: 0 15px;
+        }
+        .price-badge {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 16px; padding: 20px;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+        }
+        .price-badge h3 { color: #f59e0b; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .price-badge p { color: #cbd5e1; font-size: 0.95rem; margin: 0; }
+
+        /* KATEGORİLER GRID YAPISI */
+        .container { max-width: 1200px; margin: 20px auto 80px auto; padding: 0 20px; }
+        .templates-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;
+        }
+        
+        .template-card {
+            background: #12141c;
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .template-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 20px 45px rgba(245,158,11,0.15);
+        }
+
+        /* TARAYICI ÇERÇEVESİ (BROWSER FRAME) VE KÜÇÜK RESİM */
+        .browser-frame {
+            background: #1a1d29; border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden;
+        }
+        .browser-header {
+            padding: 10px 15px; display: flex; align-items: center; gap: 6px;
+            background: #151821; border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #f59e0b; }
+        .dot-green { background: #22c55e; }
+        
+        .browser-screen {
+            height: 180px; overflow: hidden; position: relative; background: #000;
+        }
+        .browser-screen img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.85;
+            transition: transform 0.6s ease, opacity 0.3s ease;
+        }
+        .template-card:hover .browser-screen img {
+            transform: scale(1.08); opacity: 1;
+        }
+
+        .template-body { padding: 25px; }
+        .template-body h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .template-body h3 i { color: #f59e0b; font-size: 1.1rem; }
+        .template-body p { font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
+
+        .template-footer { padding: 0 25px 25px 25px; display: flex; flex-direction: column; gap: 12px; }
+        
+        /* BUTONLAR */
+        .demo-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; background: rgba(245, 158, 11, 0.12); color: #f59e0b; padding: 12px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+            transition: 0.3s; border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .demo-btn:hover { background: #f59e0b; color: #0b0c10; transform: translateY(-2px); }
+
+        .order-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            width: 100%; background: #25D366; color: #fff; padding: 12px;
+            border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(37,211,102,0.25);
+        }
+        .order-btn:hover { background: #20ba5a; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer {
+            background: #050608; border-top: 1px solid rgba(255,255,255,0.06); text-align: center;
+            padding: 40px 20px; font-size: 0.9rem; color: #64748b;
+        }
+
+        /* MOBİL UYUM */
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 40px 15px 20px 15px; }
+            .top-tan-medya-bar { font-size: 0.7rem; padding: 8px 5px; }
+            header { top: 69px; }
+            .price-badge { padding: 15px; }
+            .price-badge h3 { font-size: 1.1rem; }
+            .price-badge p { font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. EN ÜSTTE TAN MEDYA TASARIM İMZASI (SABİT) -->
+    <div class="top-tan-medya-bar">
+        ✨ TÜM ŞABLONLAR TAN MEDYA TASARIM TARAFINDAN ÖZEL OLARAK HAZIRLANMIŞTIR.
+    </div>
+
+    <!-- ÜST MENÜ -->
+    <header>
+        <a href="#" class="logo"><i class="fa-solid fa-code"></i> Tan Medya Tasarım</a>
+        <a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Ana Sayfa</a>
+    </header>
+
+    <!-- HERO & FİYAT VURGU ALANI -->
+    <section class="hero">
+        <h1>Hazır Sektörel <span>Web Tasarım Vitrini</span></h1>
+        <p>Müşterilerinizin anında etkilenmesini sağlayacak; mobil uyumlu, canlı önizlemeli ve WhatsApp sipariş entegreli profesyonel demo koleksiyonu.</p>
+        
+        <!-- EKLEDİĞİNİZ ÖZEL FİYAT VE ÖZEL KODLAMA VURGUSU -->
+        <div class="price-badge-container">
+            <div class="price-badge">
+                <h3><i class="fa-solid fa-tags"></i> Hazır Kodlanmış Şablon 3.000 TL'den Başlayan Fiyatlarla</h3>
+                <p>İsteğe Bağlı Olarak Özel Kodlama İle Hayalinizdeki Web Sitenizi Kurabiliriz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KATEGORİLER KARTLARI -->
+    <div class="container">
+        <div class="templates-grid">
+            
+            <!-- 1. AVUKATLIK -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Avukatlık Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Avukatlık & Hukuk Bürosu</h3>
+                    <p>Ceza, iş, aile hukuku uzmanlık alanları, konum ve site içi WhatsApp soru sorma paneli.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/avukat/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Avukatlık%20ve%20Hukuk%20Bürosu%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 2. KAFE & BİSTRO -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Kafe Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-mug-hot"></i> Kafe & Bistro</h3>
+                    <p>QR menü desteği, ürün galerisi, iç/dış mekan fotoğrafları ve masa rezervasyon hattı.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/cafe/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Kafe%20&%20Bistro%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 3. CAM BALKON -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Cam Balkon Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-window-maximize"></i> Cam Balkon & Alüminyum</h3>
+                    <p>Katlanır cam, giyotin sistemler, sürgü camlar ve ölçü/fiyat teklifi alma formu.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/cambalkon/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Cam%20Balkon%20&%20Alüminyum%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 4. ÇİÇEKÇİLİK -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80" alt="Çiçekçi Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-seedling"></i> Çiçekçilik & Organizasyon</h3>
+                    <p>Aynı gün teslimat, taze gül demetleri, vazo çiçekleri ve özel buket sipariş hattı.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/cicekci/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Çiçekçilik%20&%20Organizasyon%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 5. DİŞ KLİNİĞİ -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80" alt="Diş Kliniği Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-tooth"></i> Diş Kliniği & Sağlık</h3>
+                    <p>İmplant, zirkonyum, diş beyazlatma tedavileri ve online muayene randevu paneli.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/dis/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Diş%20Kliniği%20&%20Sağlık%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 6. EMLAK -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Emlak Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-house-chimney"></i> Emlak & Gayrimenkul</h3>
+                    <p>Lüks villa, daire, plaza ofis ilanları ve ev/arsa arayış talebi form alanı.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/emlak/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Emlak%20&%20Gayrimenkul%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 7. FOTOĞRAFÇILIK -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Fotoğrafçı Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-camera-retro"></i> Fotoğrafçılık & Stüdyo</h3>
+                    <p>Düğün hikayesi, dış çekim, portre albümleri ve stüdyo rezervasyon hattı.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/fotografci/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Fotoğrafçılık%20&%20Stüdyo%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 8. GÜZELLİK MERKEZİ -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Güzellik Merkezi Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Güzellik & Estetik Merkezi</h3>
+                    <p>Buz lazer epilasyon, cilt bakımı, kalıcı makyaj uygulamaları ve randevu formu.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/guzellik/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Güzellik%20&%20Estetik%20Merkezi%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 9. HIRDAVAT -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Hırdavat Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-hammer"></i> Hırdavat & Yapı Market</h3>
+                    <p>El aletleri, matkaplar, kaynak makineleri, toptan ve perakende malzeme sipariş hattı.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/hirdavat/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Hırdavat%20&%20Yapı%20Market%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 10. MOBİLYA -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80" alt="Mobilya Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-couch"></i> Mobilya & İmalat</h3>
+                    <p>Koltuk takımları, yemek odaları ve kişiye özel ölçü mobilya fiyat teklif formu.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/mobilya/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Mobilya%20&%20İmalat%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 11. NAKLİYE -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80" alt="Nakliye Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-truck-fast"></i> Nakliyat & Lojistik</h3>
+                    <p>Evden eve asansörlü taşıma, şehirler arası nakliye ve anında fiyat hesaplama paneli.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/nakliye/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Nakliyat%20&%20Lojistik%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 12. RESTORAN -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Restoran Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-utensils"></i> Gurme Restoran & Steakhouse</h3>
+                    <p>Özel dinlendirilmiş etler, odun ateşi pizzalar ve akşam yemeği masa rezervasyonu.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/restoran/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Gurme%20Restoran%20&%20Steakhouse%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+            <!-- 13. SİGORTA -->
+            <div class="template-card">
+                <div class="browser-frame">
+                    <div class="browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-screen">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Sigorta Şablonu">
+                    </div>
+                </div>
+                <div class="template-body">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Sigorta Acenteliği</h3>
+                    <p>25+ anlaşmalı şirket logoları, kasko, trafik, konut sigortası ve teklif alma formu.</p>
+                </div>
+                <div class="template-footer">
+                    <a href="demos/sigorta/index.html" class="demo-btn"><i class="fa-solid fa-eye"></i> Canlı Şablonu Gör</a>
+                    <a href="https://wa.me/905010901722?text=Merhaba,%20Sigorta%20Acenteliği%20şablonunuzu%20seçtim%20ve%20satın%20almak/sipariş%20vermek%20istiyorum." target="_blank" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Şablonu Seç ve Sipariş Ver</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Tan Medya Tasarım. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
