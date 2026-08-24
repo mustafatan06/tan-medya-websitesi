@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Aura Güzellik & Estetik | Test Şablonu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0e0b10; color: #f3f4f6; line-height: 1.6; overflow-x: hidden; }
+
+        /* ZARİF ESTETİK / PEMBE-ALTIN IŞIKLAR */
+        body::before {
+            content: ''; position: fixed; top: -100px; right: -100px; width: 400px; height: 400px;
+            background: rgba(244, 114, 182, 0.05); filter: blur(120px); z-index: -1; pointer-events: none;
+        }
+
+        /* --- 1. EN ÜSTTE TAN MEDYA TASARIM İMZASI (SABİT ÇAKILI) --- */
+        .top-tan-medya-bar {
+            position: sticky; top: 0; z-index: 10000;
+            background: linear-gradient(135deg, #1f141d, #0e0b10); 
+            color: #f472b6; text-align: center; padding: 10px 15px;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- 2. KALIN VE EKRANA SABİT KIRMIZI UYARI BANNERİ --- */
+        .sticky-test-banner {
+            position: sticky; top: 37px; z-index: 9999;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: #fff; text-align: center; padding: 12px 15px;
+            font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+            border-bottom: 3px solid #7f1d1d;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        /* ÜST MENÜ */
+        header {
+            background: rgba(14, 11, 16, 0.9); backdrop-filter: blur(10px);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 83px; z-index: 100;
+        }
+        .logo { font-size: 1.1rem; font-weight: 700; color: #f472b6; display: flex; align-items: center; gap: 8px; }
+        .back-btn { background: rgba(255,255,255,0.1); color: #fff; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; transition: 0.3s; white-space: nowrap; }
+        .back-btn:hover { background: #f472b6; color: #0e0b10; }
+
+        /* HERO BÖLÜMÜ */
+        .hero {
+            position: relative; padding: 90px 20px; text-align: center;
+            background: linear-gradient(135deg, rgba(14,11,16,0.8), rgba(31,20,29,0.9)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80') center/cover;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 15px; }
+        .hero h1 span { color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.3); }
+        .hero p { color: #cbd5e1; font-size: 1.05rem; max-width: 700px; margin: 0 auto 25px auto; }
+        
+        .hero-btn {
+            background: #f472b6; color: #0e0b10; padding: 12px 28px; border-radius: 30px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 15px rgba(244,114,182,0.3);
+        }
+        .hero-btn:hover { background: #ec4899; color: #fff; transform: translateY(-2px); }
+
+        /* ANA İÇERİK */
+        .main-container {
+            max-width: 1200px; margin: 50px auto; padding: 0 20px;
+            display: grid; grid-template-columns: 2fr 1fr; gap: 35px;
+        }
+
+        .section-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 25px; border-left: 4px solid #f472b6; padding-left: 12px; display: flex; align-items: center; gap: 10px; }
+
+        /* HİZMETLER VE BAKIMLAR (GALERİ KARTLARI) */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .gallery-card {
+            background: #1a1219; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden;
+            transition: transform 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .gallery-card:hover { transform: translateY(-5px); border-color: #f472b6; }
+        .gallery-card img { width: 100%; height: 180px; object-fit: cover; }
+        .gallery-body { padding: 18px; }
+        .gallery-body h3 { font-size: 1.05rem; color: #fff; margin-bottom: 5px; }
+        .gallery-body p { font-size: 0.8rem; color: #cbd5e1; margin-bottom: 10px; }
+        .price { color: #f472b6; font-weight: 700; font-size: 0.95rem; }
+
+        /* İLETİŞİM KUTUSU */
+        .info-box {
+            background: #1a1219; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 25px; margin-bottom: 30px;
+        }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-item i { color: #f472b6; font-size: 1.2rem; margin-top: 3px; background: rgba(244,114,182,0.1); padding: 10px; border-radius: 8px; }
+        .info-item h4 { font-size: 0.9rem; color: #fff; margin-bottom: 2px; }
+        .info-item p { font-size: 0.85rem; color: #cbd5e1; word-break: break-word; }
+
+        /* SİTE İÇİ WHATSAPP RANDEVU AL */
+        .wa-widget {
+            background: #1a1219; border: 1px solid rgba(37,211,102,0.3); border-radius: 14px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.1);
+        }
+        .wa-header { background: #25D366; color: #fff; padding: 14px 18px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+        .wa-body { padding: 20px; }
+        .wa-body p { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 15px; }
+        .wa-input {
+            width: 100%; background: #0e0b10; border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 12px; resize: none; outline: none;
+            transition: 0.3s;
+        }
+        .wa-input:focus { border-color: #25D366; box-shadow: 0 0 10px rgba(37,211,102,0.2); }
+        .wa-send-btn {
+            background: #25D366; color: #fff; border: none; width: 100%; padding: 12px;
+            border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .wa-send-btn:hover { background: #20ba5a; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer {
+            background: #08060a; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;
+            padding: 30px 20px; margin-top: 60px; font-size: 0.85rem; color: #64748b;
+        }
+
+        /* MOBİL UYUM */
+        @media(max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; gap: 30px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 60px 15px; }
+            .sticky-test-banner { font-size: 0.75rem; padding: 10px 8px; }
+            .top-tan-medya-bar { font-size: 0.7rem; padding: 8px 8px; }
+            header { top: 73px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. EN ÜSTTE TAN MEDYA TASARIM İMZASI (SABİT) -->
+    <div class="top-tan-medya-bar">
+        ✨ BU ŞABLON TAN MEDYA TASARIM TARAFINDAN HAZIRLANMIŞTIR.
+    </div>
+
+    <!-- 2. KALIN VE EKRANA SABİT KIRMIZI UYARI BANNERİ -->
+    <div class="sticky-test-banner">
+        ⚠️ DİKKAT: BU SAYFA BİR TEST ŞABLONUDUR, GERÇEK BİR GÜZELLİK MERKEZİ DEĞİLDİR!
+    </div>
+
+    <!-- ÜST MENÜ -->
+    <header>
+        <div class="logo"><i class="fa-solid fa-wand-magic-sparkles" style="color: #f472b6;"></i> L'Aura Güzellik</div>
+        <a href="../../sablonlar.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Şablonlara Dön</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Güzelliğinize Işık Tutun, <span>Kendinizi Şımartın</span></h1>
+        <p>Profesyonel cilt bakımı, buz lazer epilasyon ve modern estetik uygulamalarıyla yenilenin.</p>
+        <a href="#hizmetlerBolumu" class="hero-btn"><i class="fa-solid fa-spa"></i> Bakım Paketlerini İncele</a>
+    </section>
+
+    <!-- ANA İÇERİK -->
+    <main class="main-container" id="hizmetlerBolumu">
+        
+        <!-- SOL TARAF: HİZMETLER VE BAKIMLAR (GALERİ) -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-heart" style="color: #f472b6;"></i> Popüler Bakım & Estetik Uygulamaları</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=500&q=80" alt="Cilt Bakımı">
+                    <div class="gallery-body">
+                        <h3>16 Adımlı Altın İğne & Cilt Bakımı</h3>
+                        <p>Derinlemesine temizlik, nem dengesi ve parlaklık kazandıran bakım.</p>
+                        <div class="price">1.250 TL</div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1512290900672-ed38469a4738?auto=format&fit=crop&w=500&q=80" alt="Buz Lazer">
+                    <div class="gallery-body">
+                        <h3>Buz Lazer Epilasyon (Tüm Vücut)</h3>
+                        <p>Ağrısız, acısız, son teknoloji cihazlarla kesin sonuç garantili seanslar.</p>
+                        <div class="price">Kampanyalı Fiyat</div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=500&q=80" alt="Kalıcı Makyaj">
+                    <div class="gallery-body">
+                        <h3>Microblading & İpek Kirpik</h3>
+                        <p>Doğal kıl tekniği kaş tasarımı ve hacimli ipek kirpik uygulamaları.</p>
+                        <div class="price">950 TL'den Başlayan</div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="Bölgesel İncelme">
+                    <div class="gallery-body">
+                        <h3>G5 & Bölgesel İncelme</h3>
+                        <p>Selülit görünümünü azaltan ve sıkılaşma sağlayan profesyonel masaj.</p>
+                        <div class="price">Seans Başı 750 TL</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SAĞ TARAF: İLETİŞİM, KONUM VE WHATSAPP RANDEVU AL -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-map-location-dot" style="color: #f472b6;"></i> İletişim & Konum</h2>
+            
+            <div class="info-box">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Merkez Adresi</h4>
+                        <p>Arjantin Caddesi, Güzellik Sokak No: 14, Çankaya / Ankara</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Randevu Hattı</h4>
+                        <p>0501 090 17 22</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Çalışma Saatleri</h4>
+                        <p>Pazartesi - Cumartesi: 09:00 - 19:30</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SİTE İÇİNDEN DİREKT WHATSAPP RANDEVU TALEBİ -->
+            <div class="wa-widget">
+                <div class="wa-header">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hemen Ücretsiz Randevu / Bilgi Al
+                </div>
+                <div class="wa-body">
+                    <p>Hangi işlemimiz hakkında bilgi almak istiyorsunuz veya hangi gün randevu talep ediyorsunuz yazın:</p>
+                    
+                    <textarea id="userQuestion" class="wa-input" rows="3" placeholder="Örn: Bu hafta sonu cilt bakımı için müsaitliğiniz var mı?"></textarea>
+                    
+                    <button class="wa-send-btn" onclick="sendToWhatsApp()">
+                        <i class="fa-solid fa-paper-plane"></i> WhatsApp ile Randevu Al
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 L'Aura Güzellik & Estetik Merkezi. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <!-- WHATSAPP BAĞLANTI SCRİPTİ -->
+    <script>
+        function sendToWhatsApp() {
+            const questionText = document.getElementById('userQuestion').value.trim();
+            const phoneNumber = "905010901722";
+
+            if(questionText === "") {
+                alert("Lütfen randevu veya işlem detayınızı yazın.");
+                return;
+            }
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Güzellik Merkezi Randevu Talebi (Web Sitesi Üzerinden): " + questionText)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>
