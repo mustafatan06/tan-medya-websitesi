@@ -21,29 +21,33 @@
             background: rgba(59, 130, 246, 0.08); filter: blur(150px); z-index: -1; pointer-events: none;
         }
 
-        /* ÜST İMZA BARı (SABİT) */
+        /* --- EN ÜSTTE BÜYÜK VE EKRANA SABİT TEK İMZA BARI --- */
         .top-tan-medya-bar {
             position: sticky; top: 0; z-index: 10000;
             background: linear-gradient(135deg, #181824, #0f1017); 
-            color: #f59e0b; text-align: center; padding: 10px 15px;
-            font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            color: #f59e0b; text-align: center; padding: 16px 20px;
+            font-size: 0.95rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+            border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.7);
+            display: flex; align-items: center; justify-content: center; gap: 10px;
         }
+        .top-tan-medya-bar i { font-size: 1.2rem; }
 
-        /* ÜST MENÜ */
-        header {
-            background: rgba(15, 16, 23, 0.85); backdrop-filter: blur(12px);
-            padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 37px; z-index: 100;
+        /* ANA SAYFAYA DÖNÜŞ BUTONU (SAĞ ÜST KÖŞE VEYA BAŞLIK ALANI İÇİN) */
+        .top-nav-bar {
+            max-width: 1200px; margin: 25px auto 0 auto; padding: 0 20px;
+            display: flex; justify-content: flex-end; align-items: center;
         }
-        .logo { font-size: 1.3rem; font-weight: 800; color: #f59e0b; display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .home-btn { background: rgba(255,255,255,0.08); color: #fff; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .home-btn { 
+            background: rgba(255,255,255,0.08); color: #fff; padding: 10px 20px; border-radius: 20px; 
+            text-decoration: none; font-size: 0.9rem; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);
+            display: inline-flex; align-items: center; gap: 8px;
+        }
         .home-btn:hover { background: #f59e0b; color: #000; border-color: #f59e0b; }
 
         /* HERO BÖLÜMÜ */
         .hero {
-            text-align: center; padding: 80px 20px 40px 20px;
+            text-align: center; padding: 40px 20px 30px 20px;
             background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
         }
         .hero h1 { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 15px; letter-spacing: -0.5px; }
@@ -52,7 +56,7 @@
 
         /* KAMPANYA / FİYAT VURGU KUTUSU */
         .price-badge-container {
-            max-width: 800px; margin: 0 auto 40px auto; padding: 0 15px;
+            max-width: 800px; margin: 0 auto 30px auto; padding: 0 15px;
         }
         .price-badge {
             background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.05));
@@ -138,9 +142,8 @@
         /* MOBİL UYUM */
         @media(max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .hero { padding: 40px 15px 20px 15px; }
-            .top-tan-medya-bar { font-size: 0.7rem; padding: 8px 5px; }
-            header { top: 69px; }
+            .hero { padding: 30px 15px 15px 15px; }
+            .top-tan-medya-bar { font-size: 0.75rem; padding: 12px 10px; }
             .price-badge { padding: 15px; }
             .price-badge h3 { font-size: 1.1rem; }
             .price-badge p { font-size: 0.85rem; }
@@ -149,23 +152,22 @@
 </head>
 <body>
 
-    <!-- 1. EN ÜSTTE TAN MEDYA TASARIM İMZASI (SABİT) -->
+    <!-- 1. EN ÜSTTE BÜYÜK VE EKRANA SABİT TAN MEDYA İMZASI -->
     <div class="top-tan-medya-bar">
-        ✨ TÜM ŞABLONLAR TAN MEDYA TASARIM TARAFINDAN ÖZEL OLARAK HAZIRLANMIŞTIR.
+        <i class="fa-solid fa-code"></i> BU ŞABLONLAR TAN MEDYA TASARIM TARAFINDAN ÖZEL OLARAK HAZIRLANMIŞTIR.
     </div>
 
-    <!-- ÜST MENÜ -->
-    <header>
-        <a href="#" class="logo"><i class="fa-solid fa-code"></i> Tan Medya Tasarım</a>
+    <!-- ANA SAYFAYA DÖNÜŞ BUTONU -->
+    <div class="top-nav-bar">
         <a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Ana Sayfa</a>
-    </header>
+    </div>
 
     <!-- HERO & FİYAT VURGU ALANI -->
     <section class="hero">
         <h1>Hazır Sektörel <span>Web Tasarım Vitrini</span></h1>
         <p>Müşterilerinizin anında etkilenmesini sağlayacak; mobil uyumlu, canlı önizlemeli ve WhatsApp sipariş entegreli profesyonel demo koleksiyonu.</p>
         
-        <!-- EKLEDİĞİNİZ ÖZEL FİYAT VE ÖZEL KODLAMA VURGUSU -->
+        <!-- FİYAT VE ÖZEL KODLAMA VURGUSU -->
         <div class="price-badge-container">
             <div class="price-badge">
                 <h3><i class="fa-solid fa-tags"></i> Hazır Kodlanmış Şablon 3.000 TL'den Başlayan Fiyatlarla</h3>
