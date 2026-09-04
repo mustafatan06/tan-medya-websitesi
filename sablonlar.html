@@ -6,10 +6,17 @@
     <title>Sektörel Web Tasarım Vitrini | Tan Medya</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #08090d; color: #f1f5f9; line-height: 1.6; overflow-x: hidden; }
+        body { 
+            background-color: #08090d; 
+            color: #f1f5f9; 
+            line-height: 1.6; 
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden; 
+        }
 
         /* CANLI AJANS ATMOSFERİ IŞIKLARI */
         body::before {
@@ -25,17 +32,20 @@
         .top-tan-medya-bar {
             position: sticky; top: 0; z-index: 10000;
             background: linear-gradient(135deg, #181824, #0f1017); 
-            color: #f59e0b; text-align: center; padding: 16px 20px;
-            font-size: 0.95rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+            color: #f59e0b; text-align: center; padding: 14px 15px;
+            font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
             border-bottom: 2px solid rgba(245, 158, 11, 0.3);
             box-shadow: 0 6px 25px rgba(0,0,0,0.7);
-            display: flex; align-items: center; justify-content: center; gap: 10px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .top-tan-medya-bar i { font-size: 1.2rem; }
+        .top-tan-medya-bar i { font-size: 1.1rem; }
 
-        /* ANA SAYFAYA DÖNÜŞ BUTONU (SAĞ ÜST KÖŞE VEYA BAŞLIK ALANI İÇİN) */
+        /* ANA SAYFAYA DÖNÜŞ BUTONU */
         .top-nav-bar {
-            max-width: 1200px; margin: 25px auto 0 auto; padding: 0 20px;
+            max-width: 1200px; margin: 20px auto 0 auto; padding: 0 20px;
             display: flex; justify-content: flex-end; align-items: center;
         }
         .home-btn { 
@@ -47,29 +57,40 @@
 
         /* HERO BÖLÜMÜ */
         .hero {
-            text-align: center; padding: 40px 20px 30px 20px;
+            text-align: center; padding: 30px 15px 20px 15px;
             background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
         }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; color: #fff; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; color: #fff; margin-bottom: 20px; letter-spacing: -0.5px; }
         .hero h1 span { background: linear-gradient(135deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #94a3b8; font-size: 1.05rem; max-width: 750px; margin: 0 auto 25px auto; }
+        .hero p { color: #94a3b8; font-size: 1.05rem; max-width: 750px; margin: 0 auto 25px auto; padding: 0 10px; }
 
-        /* KAMPANYA / FİYAT VURGU KUTUSU */
-        .price-badge-container {
-            max-width: 800px; margin: 0 auto 30px auto; padding: 0 15px;
+        /* ANA SAYFADAKİ İLE BİREBİR AYNI VURGULU VE NEON ALAN */
+        .hero-neon-box {
+            background: rgba(17, 24, 39, 0.85);
+            border: 2px solid #8b5cf6;
+            border-radius: 15px;
+            padding: 20px 15px;
+            margin: 0 auto 30px auto;
+            max-width: 750px;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.4), inset 0 0 15px rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(5px);
         }
-        .price-badge {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.05));
-            border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 16px; padding: 20px;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+        .hero-neon-box h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-shadow: 0 0 10px #fff,
+                         0 0 20px #3b82f6,
+                         0 0 30px #8b5cf6;
+            line-height: 1.4;
         }
-        .price-badge h3 { color: #f59e0b; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .price-badge p { color: #cbd5e1; font-size: 0.95rem; margin: 0; }
 
         /* KATEGORİLER GRID YAPISI */
-        .container { max-width: 1200px; margin: 20px auto 80px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 10px auto 70px auto; padding: 0 20px; width: 100%; }
         .templates-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%;
         }
         
         .template-card {
@@ -79,12 +100,12 @@
             display: flex; flex-direction: column; justify-content: space-between;
         }
         .template-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: rgba(245, 158, 11, 0.4);
             box-shadow: 0 20px 45px rgba(245,158,11,0.15);
         }
 
-        /* TARAYICI ÇERÇEVESİ (BROWSER FRAME) VE KÜÇÜK RESİM */
+        /* TARAYICI ÇERÇEVESİ VE KÜÇÜK RESİM */
         .browser-frame {
             background: #1a1d29; border-bottom: 1px solid rgba(255,255,255,0.08);
             border-top-left-radius: 20px; border-top-right-radius: 20px; overflow: hidden;
@@ -109,12 +130,12 @@
             transform: scale(1.08); opacity: 1;
         }
 
-        .template-body { padding: 25px; }
-        .template-body h3 { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .template-body h3 i { color: #f59e0b; font-size: 1.1rem; }
-        .template-body p { font-size: 0.9rem; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
+        .template-body { padding: 22px; }
+        .template-body h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .template-body h3 i { color: #f59e0b; font-size: 1.1rem; flex-shrink: 0; }
+        .template-body p { font-size: 0.88rem; color: #94a3b8; margin-bottom: 15px; line-height: 1.5; }
 
-        .template-footer { padding: 0 25px 25px 25px; display: flex; flex-direction: column; gap: 12px; }
+        .template-footer { padding: 0 22px 22px 22px; display: flex; flex-direction: column; gap: 12px; }
         
         /* BUTONLAR */
         .demo-btn {
@@ -136,51 +157,48 @@
         /* FOOTER */
         footer {
             background: #050608; border-top: 1px solid rgba(255,255,255,0.06); text-align: center;
-            padding: 40px 20px; font-size: 0.9rem; color: #64748b;
+            padding: 35px 20px; font-size: 0.9rem; color: #64748b;
         }
 
         /* MOBİL UYUM */
         @media(max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            .hero { padding: 30px 15px 15px 15px; }
-            .top-tan-medya-bar { font-size: 0.75rem; padding: 12px 10px; }
-            .price-badge { padding: 15px; }
-            .price-badge h3 { font-size: 1.1rem; }
-            .price-badge p { font-size: 0.85rem; }
+            .hero { padding: 25px 15px 15px 15px; }
+            .top-tan-medya-bar { font-size: 0.75rem; padding: 10px 8px; letter-spacing: 1px; }
+            .hero-neon-box { padding: 15px 10px; margin: 0 10px 25px 10px; }
+            .hero-neon-box h2 { font-size: 1.1rem; }
+            .container { padding: 0 15px; }
+        }
+
+        @media(max-width: 480px) {
+            .hero h1 { font-size: 1.7rem; }
+            .hero-neon-box h2 { font-size: 0.95rem; }
+            .top-tan-medya-bar { font-size: 0.68rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. EN ÜSTTE BÜYÜK VE EKRANA SABİT TAN MEDYA İMZASI -->
     <div class="top-tan-medya-bar">
         <i class="fa-solid fa-code"></i> BU ŞABLONLAR TAN MEDYA TASARIM TARAFINDAN ÖZEL OLARAK HAZIRLANMIŞTIR.
     </div>
 
-    <!-- ANA SAYFAYA DÖNÜŞ BUTONU -->
     <div class="top-nav-bar">
         <a href="index.html" class="home-btn"><i class="fa-solid fa-house"></i> Ana Sayfa</a>
     </div>
 
-    <!-- HERO & FİYAT VURGU ALANI -->
     <section class="hero">
-        <h1>Hazır Sektörel <span>Web Tasarım Vitrini</span></h1>
-        <p>Müşterilerinizin anında etkilenmesini sağlayacak; mobil uyumlu, canlı önizlemeli ve WhatsApp sipariş entegreli profesyonel demo koleksiyonu.</p>
-        
-        <!-- FİYAT VE ÖZEL KODLAMA VURGUSU -->
-        <div class="price-badge-container">
-            <div class="price-badge">
-                <h3><i class="fa-solid fa-tags"></i> Hazır Kodlanmış Şablon 3.000 TL'den Başlayan Fiyatlarla</h3>
-                <p>İsteğe Bağlı Olarak Özel Kodlama İle Hayalinizdeki Web Sitenizi Kurabiliriz.</p>
-            </div>
+        <div class="hero-neon-box">
+            <h2>Hazır Şablon Web Siteleri <br><span style="color: #facc15; text-shadow: 0 0 10px #facc15, 0 0 20px #eab308;">4.000 TL 'den Başlayan Fiyatlarla</span></h2>
         </div>
+
+        <h1>Sektörel Web Tasarım <span>Vitrini</span></h1>
+        <p>Müşterilerinizin anında etkilenmesini sağlayacak; mobil uyumlu, canlı önizlemeli ve WhatsApp sipariş entegreli profesyonel demo koleksiyonu.</p>
     </section>
 
-    <!-- KATEGORİLER KARTLARI -->
     <div class="container">
         <div class="templates-grid">
             
-            <!-- 1. AVUKATLIK -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -202,7 +220,6 @@
                 </div>
             </div>
 
-            <!-- 2. KAFE & BİSTRO -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -224,7 +241,6 @@
                 </div>
             </div>
 
-            <!-- 3. CAM BALKON -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -246,7 +262,6 @@
                 </div>
             </div>
 
-            <!-- 4. ÇİÇEKÇİLİK -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -268,7 +283,6 @@
                 </div>
             </div>
 
-            <!-- 5. DİŞ KLİNİĞİ -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -290,7 +304,6 @@
                 </div>
             </div>
 
-            <!-- 6. EMLAK -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -312,7 +325,6 @@
                 </div>
             </div>
 
-            <!-- 7. FOTOĞRAFÇILIK -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -334,7 +346,6 @@
                 </div>
             </div>
 
-            <!-- 8. GÜZELLİK MERKEZİ -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -356,7 +367,6 @@
                 </div>
             </div>
 
-            <!-- 9. HIRDAVAT -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -378,7 +388,6 @@
                 </div>
             </div>
 
-            <!-- 10. MOBİLYA -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -400,7 +409,6 @@
                 </div>
             </div>
 
-            <!-- 11. NAKLİYE -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -422,7 +430,6 @@
                 </div>
             </div>
 
-            <!-- 12. RESTORAN -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -444,7 +451,6 @@
                 </div>
             </div>
 
-            <!-- 13. SİGORTA -->
             <div class="template-card">
                 <div class="browser-frame">
                     <div class="browser-header">
@@ -469,7 +475,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Tan Medya Tasarım. Tüm Hakları Saklıdır.</p>
     </footer>
