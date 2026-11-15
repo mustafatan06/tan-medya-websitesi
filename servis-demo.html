@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topçuoğlu Peyzaj & Teknik Servis | Profesyonel Bahçe ve Ev Çözümleri</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            800: '#2d6a4f',
+                            900: '#1b4332',
+                            950: '#0f261c'
+                        },
+                        earth: {
+                            400: '#e9edc9',
+                            500: '#d4a373',
+                            600: '#bc6c25'
+                        },
+                        neutralDark: {
+                            900: '#111827',
+                            950: '#0b0f19'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-neutralDark-950 text-stone-200 antialiased selection:bg-earth-500 selection:text-neutralDark-950">
+
+    <!-- 1. SABİT UYARI BANTI (KIRMIZI) -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wider shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek İşletme Değildir.</span>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <header class="fixed top-8 sm:top-10 left-0 right-0 z-40 bg-neutralDark-900/90 backdrop-blur-md border-b border-emerald-900/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-forest-800 to-forest-950 border border-earth-500/40 flex items-center justify-center text-earth-500 font-serif font-bold text-xl shadow-md">
+                    T
+                </div>
+                <div>
+                    <span class="block font-serif text-base sm:text-lg font-bold tracking-wide text-white group-hover:text-earth-400 transition-colors">TOPÇUOĞLU</span>
+                    <span class="block text-[10px] sm:text-xs text-earth-500 uppercase tracking-widest font-semibold">Peyzaj & Teknik Servis</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-earth-400 hover:text-earth-300 transition-colors">Ana Sayfa</a>
+                <a href="#hizmetler" class="text-stone-300 hover:text-earth-400 transition-colors">Hizmetler</a>
+                <a href="#neden-biz" class="text-stone-300 hover:text-earth-400 transition-colors">Neden Biz?</a>
+                <a href="#projeler" class="text-stone-300 hover:text-earth-400 transition-colors">Projeler</a>
+                <a href="#iletisim" class="text-stone-300 hover:text-earth-400 transition-colors">İletişim</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#iletisim" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-earth-500 to-earth-600 text-neutralDark-950 font-bold text-xs sm:text-sm hover:from-earth-400 hover:to-earth-500 transition-all shadow-lg hover:shadow-earth-500/20">
+                    Teklif Al
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-stone-200 hover:text-earth-400 focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-neutralDark-900 border-b border-emerald-900/30 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-earth-400 font-medium py-1">Ana Sayfa</a>
+            <a href="#hizmetler" class="block text-stone-300 hover:text-earth-400 font-medium py-1">Hizmetler</a>
+            <a href="#neden-biz" class="block text-stone-300 hover:text-earth-400 font-medium py-1">Neden Biz?</a>
+            <a href="#projeler" class="block text-stone-300 hover:text-earth-400 font-medium py-1">Projeler</a>
+            <a href="#iletisim" class="block text-stone-300 hover:text-earth-400 font-medium py-1">İletişim</a>
+            <div class="pt-2">
+                <a href="#iletisim" class="block text-center w-full py-3 rounded-full bg-earth-500 text-neutralDark-950 font-bold text-sm">Teklif Al</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION -->
+    <section id="hero" class="relative pt-36 md:pt-48 pb-32 bg-gradient-to-b from-neutralDark-900 via-forest-950 to-neutralDark-950 overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#d4a373_1px,transparent_1px)] [background-size:36px_36px]"></div>
+        <div class="absolute top-1/3 left-10 w-96 h-96 bg-forest-800/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-800/30 border border-emerald-600/30 text-earth-400 text-xs sm:text-sm font-medium tracking-wide">
+                        <i class="fa-solid fa-seedling"></i> Profesyonel Peyzaj & Teknik Ev Bakım Hizmetleri
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+                        Bahçeniz ve Eviniz İçin <span class="text-transparent bg-clip-text bg-gradient-to-r from-earth-400 to-earth-500">Profesyonel Çözümler</span>
+                    </h1>
+                    <p class="text-stone-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Topçuoğlu olarak doğanın estetiğini yaşam alanlarınıza taşıyor, evinizin tüm tadilat, tesisat ve teknik bakım ihtiyaçlarını uzman ekibimizle tek elden çözüyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#iletisim" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-earth-500 to-earth-600 text-neutralDark-950 font-bold text-sm hover:from-earth-400 hover:to-earth-500 transition-all shadow-xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator"></i> Ücretsiz Teklif Alın
+                        </a>
+                        <a href="#hizmetler" class="w-full sm:w-auto px-8 py-4 rounded-full border border-stone-700 hover:border-earth-500/50 text-stone-200 font-semibold text-sm transition-all text-center">
+                            Hizmetlerimizi İnceleyin
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-sm sm:max-w-md rounded-3xl bg-neutralDark-900 border-2 border-emerald-800/40 p-6 shadow-2xl space-y-6">
+                        <div class="flex items-center justify-between border-b border-stone-800 pb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-forest-900 text-earth-500 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-serif font-bold text-white text-base">Güvenilir Hizmet</h3>
+                                    <p class="text-xs text-stone-400">%100 İşçilik Garantisi</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">Aktif</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-neutralDark-950 border border-stone-800">
+                                <div class="text-earth-500 text-lg"><i class="fa-solid fa-tree"></i></div>
+                                <div>
+                                    <h4 class="text-white text-xs font-semibold">Peyzaj & Bahçe Tasarım</h4>
+                                    <p class="text-[11px] text-stone-400">Özel peyzaj projeleri ve uygulama</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-neutralDark-950 border border-stone-800">
+                                <div class="text-earth-500 text-lg"><i class="fa-solid fa-wrench"></i></div>
+                                <div>
+                                    <h4 class="text-white text-xs font-semibold">Ev Tadilat & Teknik Servis</h4>
+                                    <p class="text-[11px] text-stone-400">Su tesisatı, elektrik ve onarım</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-neutralDark-950 border border-stone-800">
+                                <div class="text-earth-500 text-lg"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h4 class="text-white text-xs font-semibold">7/24 Acil Müdahale</h4>
+                                    <p class="text-[11px] text-stone-400">Hızlı ve yerinde arıza giderme</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#iletisim" class="block w-full py-3 text-center rounded-xl bg-forest-900 hover:bg-forest-800 text-stone-200 font-semibold text-xs transition-colors border border-emerald-800/50">
+                            Hemen Randevu Oluştur
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SERVICES SECTION -->
+    <section id="hizmetler" class="py-24 bg-neutralDark-900/60 border-t border-b border-emerald-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-800/30 border border-emerald-600/30 text-earth-400 text-xs font-medium uppercase tracking-wider">
+                    Uzmanlık Alanlarımız
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Kapsamlı Peyzaj & Teknik Servis Hizmetleri
+                </h2>
+                <p class="text-stone-400 text-sm sm:text-base">
+                    Bahçenizin bakımından evinizin teknik altyapısına kadar her alanda profesyonel çözümler sunuyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-neutralDark-900 border border-emerald-900/40 p-8 rounded-2xl shadow-xl group hover:border-earth-500/60 transition-all duration-300 space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-forest-900 text-earth-500 flex items-center justify-center text-2xl group-hover:bg-earth-500 group-hover:text-neutralDark-950 transition-all">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl group-hover:text-earth-400 transition-colors">
+                        Peyzaj & Bahçe Düzenleme
+                    </h3>
+                    <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+                        Bahçeniz için estetik projelendirme, bitki seçimi, rulo çim uygulaması ve anahtar teslim peyzaj çözümleri.
+                    </p>
+                    <ul class="pt-2 space-y-1.5 text-xs text-stone-300 border-t border-stone-800">
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Projelendirme ve 3D Tasarım</li>
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Mevsimlik Bitki & Ağaçlandırma</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-neutralDark-900 border border-emerald-900/40 p-8 rounded-2xl shadow-xl group hover:border-earth-500/60 transition-all duration-300 space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-forest-900 text-earth-500 flex items-center justify-center text-2xl group-hover:bg-earth-500 group-hover:text-neutralDark-950 transition-all">
+                        <i class="fa-solid fa-faucet-dripping"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl group-hover:text-earth-400 transition-colors">
+                        Otomatik Sulama Sistemleri
+                    </h3>
+                    <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+                        Akıllı sensörlü otomatik sulama sistemleri kurulumu, damla sulama hatları ve bakım-onarım hizmetleri.
+                    </p>
+                    <ul class="pt-2 space-y-1.5 text-xs text-stone-300 border-t border-stone-800">
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Akıllı Zaman Saati Programlama</li>
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Yağmur Sensörlü Sistemler</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-neutralDark-900 border border-emerald-900/40 p-8 rounded-2xl shadow-xl group hover:border-earth-500/60 transition-all duration-300 space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-forest-900 text-earth-500 flex items-center justify-center text-2xl group-hover:bg-earth-500 group-hover:text-neutralDark-950 transition-all">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl group-hover:text-earth-400 transition-colors">
+                        Çim Bakımı & Havalandırma
+                    </h3>
+                    <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+                        Düzenli çim biçme, gübreleme, ilaçlama, havalandırma (scarifying) ve yabani ot temizliği.
+                    </p>
+                    <ul class="pt-2 space-y-1.5 text-xs text-stone-300 border-t border-stone-800">
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Periyodik Bakım Sözleşmesi</li>
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Hastalık ve Zararlı Kontrolü</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-neutralDark-900 border border-emerald-900/40 p-8 rounded-2xl shadow-xl group hover:border-earth-500/60 transition-all duration-300 space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-forest-900 text-earth-500 flex items-center justify-center text-2xl group-hover:bg-earth-500 group-hover:text-neutralDark-950 transition-all">
+                        <i class="fa-solid fa-hammer"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl group-hover:text-earth-400 transition-colors">
+                        Ev Tadilat & Tamirat
+                    </h3>
+                    <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+                        İç mekan boya badana, alçıpan, seramik döşeme, mutfak/banyo yenileme ve genel ev onarım işleri.
+                    </p>
+                    <ul class="pt-2 space-y-1.5 text-xs text-stone-300 border-t border-stone-800">
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Anahtar Teslim Ev Yenileme</li>
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Marangozluk & Mobilya Montaj</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-neutralDark-900 border border-emerald-900/40 p-8 rounded-2xl shadow-xl group hover:border-earth-500/60 transition-all duration-300 space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-forest-900 text-earth-500 flex items-center justify-center text-2xl group-hover:bg-earth-500 group-hover:text-neutralDark-950 transition-all">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl group-hover:text-earth-400 transition-colors">
+                        Su Tesisatı & Elektrik Arıza
+                    </h3>
+                    <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+                        Su kaçağı tespiti, musluk/lavabo montajı, sigorta kutusu arızaları ve aydınlatma sistemleri tamiri.
+                    </p>
+                    <ul class="pt-2 space-y-1.5 text-xs text-stone-300 border-t border-stone-800">
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Kırmadan Su Kaçağı Tespiti</li>
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> 7/24 Acil Elektrik Arıza</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-neutralDark-900 border border-emerald-900/40 p-8 rounded-2xl shadow-xl group hover:border-earth-500/60 transition-all duration-300 space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-forest-900 text-earth-500 flex items-center justify-center text-2xl group-hover:bg-earth-500 group-hover:text-neutralDark-950 transition-all">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl group-hover:text-earth-400 transition-colors">
+                        Klima & Kombi Bakım
+                    </h3>
+                    <p class="text-stone-400 text-xs sm:text-sm leading-relaxed">
+                        Yıllık periyodik kombi bakımı, petek temizliği ve klima gaz dolumu, filtre temizliği ve montajı.
+                    </p>
+                    <ul class="pt-2 space-y-1.5 text-xs text-stone-300 border-t border-stone-800">
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Kimyasallı Petek Temizliği</li>
+                        <li><i class="fa-solid fa-check text-earth-500 mr-2"></i> Klima Bakım & Montajı</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHY CHOOSE US SECTION -->
+    <section id="neden-biz" class="py-24 bg-neutralDark-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-800/30 border border-emerald-600/30 text-earth-400 text-xs font-medium uppercase tracking-wider">
+                        Neden Bizi Seçmelisiniz?
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Uzman Kadro ve Kaliteli İşçilik Güvencesi
+                    </h2>
+                    <p class="text-stone-300 text-sm leading-relaxed">
+                        Yılların verdiği tecrübe ile hem bahçenizin estetiğini hem de evinizin teknik konforunu en üst seviyeye taşıyoruz. Müşteri memnuniyetini her zaman ön planda tutuyoruz.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="bg-neutralDark-900 p-4 rounded-xl border border-stone-800">
+                            <span class="block font-serif font-bold text-earth-400 text-3xl">15+</span>
+                            <span class="block text-xs text-stone-400 mt-1">Yıllık Sektör Deneyimi</span>
+                        </div>
+                        <div class="bg-neutralDark-900 p-4 rounded-xl border border-stone-800">
+                            <span class="block font-serif font-bold text-earth-400 text-3xl">2.500+</span>
+                            <span class="block text-xs text-stone-400 mt-1">Tamamlanan Proje</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-neutralDark-900 border border-emerald-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-forest-900 text-earth-500 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">Sertifikalı Uzman Ekip</h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Alanında uzman, belgeli peyzaj mimarları ve teknik servis teknisyenleriyle çalışıyoruz.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutralDark-900 border border-emerald-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-forest-900 text-earth-500 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">7/24 Acil Destek</h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Acil su kaçağı, elektrik arızaları veya bahçe sorunlarınızda günün her saati yanınızdayız.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutralDark-900 border border-emerald-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-forest-900 text-earth-500 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">Garantili İşçilik</h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Yaptığımız tüm tadilat, bakım ve peyzaj uygulamalarında servis garantisi sunuyoruz.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutralDark-900 border border-emerald-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-forest-900 text-earth-500 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">Modern Ekipman</h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            En son teknoloji cihazlar ve kaliteli malzeme kullanımıyla kalıcı çözümler üretiyoruz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROJECTS GALLERY / SHOWCASE -->
+    <section id="projeler" class="py-24 bg-neutralDark-900/60 border-t border-emerald-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-800/30 border border-emerald-600/30 text-earth-400 text-xs font-medium uppercase tracking-wider">
+                    Örnek Uygulamalar
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Tamamlanan Projelerimizden Kareler
+                </h2>
+                <p class="text-stone-400 text-sm sm:text-base">
+                    Villa bahçelerinden modern daire tadilatlarına kadar gerçekleştirdiğimiz örnek çalışmalar.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="relative group overflow-hidden rounded-2xl border border-emerald-900/40 shadow-xl">
+                    <img src="https://placehold.co/600x400/1b4332/d4a373?text=Villa+Peyzaj+Projesi" alt="Villa Peyzaj" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neutralDark-950 via-neutralDark-950/40 to-transparent opacity-90 flex flex-col justify-end p-6">
+                        <span class="text-xs text-earth-400 font-semibold uppercase tracking-wider">Peyzaj & Sulama</span>
+                        <h3 class="font-serif font-bold text-white text-lg mt-1">Zekeriyaköy Villa Bahçesi</h3>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-2xl border border-emerald-900/40 shadow-xl">
+                    <img src="https://placehold.co/600x400/1b4332/d4a373?text=Komple+Ev+Tadilat" alt="Ev Tadilat" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neutralDark-950 via-neutralDark-950/40 to-transparent opacity-90 flex flex-col justify-end p-6">
+                        <span class="text-xs text-earth-400 font-semibold uppercase tracking-wider">Tadilat & Dekorasyon</span>
+                        <h3 class="font-serif font-bold text-white text-lg mt-1">Moderne Ev Yenileme Projesi</h3>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-2xl border border-emerald-900/40 shadow-xl">
+                    <img src="https://placehold.co/600x400/1b4332/d4a373?text=Otomatik+Sulama" alt="Sulama Sistemleri" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neutralDark-950 via-neutralDark-950/40 to-transparent opacity-90 flex flex-col justify-end p-6">
+                        <span class="text-xs text-earth-400 font-semibold uppercase tracking-wider">Altyapı & Sulama</span>
+                        <h3 class="font-serif font-bold text-white text-lg mt-1">Akıllı Bahçe Sulama Hattı</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. QUOTE REQUEST & CONTACT FORM -->
+    <section id="iletisim" class="py-24 bg-neutralDark-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-forest-800/30 border border-emerald-600/30 text-earth-400 text-xs font-medium uppercase tracking-wider">
+                        İletişim & Teklif
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Hemen Ücretsiz Teklif Alın veya Bize Ulaşın
+                    </h2>
+                    <p class="text-stone-300 text-sm leading-relaxed">
+                        Bahçe bakımı, peyzaj tasarımı veya ev teknik arızaları için formumuzu doldurun, ekibimiz en kısa sürede fiyat teklifiyle dönüş yapsın.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-forest-900 text-earth-500 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Merkez Ofis</h3>
+                                <p class="text-stone-400 text-xs mt-1">Maslak Mah. Dereboyu Cad. No: 48, Sarıyer / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-forest-900 text-earth-500 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Telefon & WhatsApp</h3>
+                                <p class="text-stone-400 text-xs mt-1">+90 (212) 555 19 20</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-forest-900 text-earth-500 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">E-Posta</h3>
+                                <p class="text-stone-400 text-xs mt-1">bilgi@topcuoglupeyzajornek.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-neutralDark-900 border border-emerald-900/40 rounded-2xl p-8 shadow-2xl">
+                    <h3 class="font-serif font-bold text-white text-2xl mb-2">Ücretsiz Keşif & Teklif Formu</h3>
+                    <p class="text-stone-400 text-xs mb-6">İhtiyacınız olan hizmeti belirtin, uzmanlarımız sizinle iletişime geçsin.</p>
+
+                    <form id="quote-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Adınız Soyadınız *</label>
+                                <input type="text" required class="w-full bg-neutralDark-950 border border-stone-800 rounded-xl px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-earth-500 transition-colors" placeholder="Ahmet Yılmaz">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Telefon Numarası *</label>
+                                <input type="tel" required class="w-full bg-neutralDark-950 border border-stone-800 rounded-xl px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-earth-500 transition-colors" placeholder="0532 000 00 00">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Hizmet Türü *</label>
+                            <select class="w-full bg-neutralDark-950 border border-stone-800 rounded-xl px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-earth-500 transition-colors">
+                                <option>Peyzaj & Bahçe Düzenleme</option>
+                                <option>Otomatik Sulama Sistemleri</option>
+                                <option>Çim Bakımı & Havalandırma</option>
+                                <option>Ev Tadilat & Tamirat</option>
+                                <option>Su Tesisatı & Elektrik Arıza</option>
+                                <option>Klima & Kombi Bakım</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Mesajınız / Detaylar *</label>
+                            <textarea rows="4" required class="w-full bg-neutralDark-950 border border-stone-800 rounded-xl px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-earth-500 transition-colors" placeholder="Bahçenizin veya evinizin büyüklüğü ve talep ettiğiniz işlem detayları..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-earth-500 to-earth-600 text-neutralDark-950 font-bold text-sm hover:from-earth-400 hover:to-earth-500 transition-all shadow-lg">
+                            Teklif Talebini Gönder
+                        </button>
+                    </form>
+
+                    <div id="success-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-base mb-1 block"></i>
+                        Teklif talebiniz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçilecektir. (Örnek Tasarım Bildirimi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROFESSIONAL FOOTER WITH TAN MEDYA TASARIM BRANDING -->
+    <footer class="bg-neutralDark-900 border-t border-emerald-900/30 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-forest-900 border border-earth-500/40 flex items-center justify-center text-earth-500 font-serif font-bold text-sm">
+                            T
+                        </div>
+                        <span class="font-serif text-base font-bold text-white tracking-wide">TOPÇUOĞLU PEYZAJ & TEKNİK</span>
+                    </div>
+                    <p class="text-stone-400 text-xs leading-relaxed max-w-sm">
+                        Bahçeniz ve eviniz için profesyonel peyzaj, otomatik sulama ve teknik ev servis çözümleri.
+                    </p>
+                    <div class="text-xs text-red-400 font-semibold bg-red-950/50 p-2.5 rounded-lg border border-red-500/30 inline-block">
+                        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek İşletme Değildir.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-earth-400">Hızlı Linkler</h4>
+                    <ul class="space-y-2 text-xs text-stone-400">
+                        <li><a href="#hero" class="hover:text-earth-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#hizmetler" class="hover:text-earth-400 transition-colors">Hizmetler</a></li>
+                        <li><a href="#neden-biz" class="hover:text-earth-400 transition-colors">Neden Biz?</a></li>
+                        <li><a href="#iletisim" class="hover:text-earth-400 transition-colors">İletişim & Teklif</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-earth-400">Yasal / Bilgi</h4>
+                    <ul class="space-y-2 text-xs text-stone-400">
+                        <li><a href="#" class="hover:text-earth-400 transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="#" class="hover:text-earth-400 transition-colors">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="#" class="hover:text-earth-400 transition-colors">Çerez Politikası</a></li>
+                        <li><a href="#" class="hover:text-earth-400 transition-colors">Hizmet Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-stone-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+                <p>&copy; 2026 Topçuoğlu Peyzaj & Teknik Servis. Tüm hakları saklıdır. (Örnek Tasarım)</p>
+                <p class="mt-2 sm:mt-0">Profesyonel Web Tasarımı: <span class="text-earth-400 font-medium">Tan Medya Tasarım</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('quote-form').reset();
+            setTimeout(() => {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>

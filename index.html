@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PQJNZNFV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tan Medya Tasarım | Profesyonel Dijital Ajans & Yazılım Çözümleri</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        agency: {
+                            dark: '#05070d',
+                            card: '#0f1423',
+                            border: '#1e263f',
+                            cyan: '#06b6d4',
+                            pink: '#ec4899',
+                            lime: '#84cc16',
+                            yellow: '#eab308'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @keyframes singleBounce {
+            0%, 25%, 100% { transform: translateY(0); }
+            12.5% { transform: translateY(-9px); }
+        }
+        .dot-seq-1 { animation: singleBounce 1.6s infinite; animation-delay: 0s; }
+        .dot-seq-2 { animation: singleBounce 1.6s infinite; animation-delay: 0.4s; }
+        .dot-seq-3 { animation: singleBounce 1.6s infinite; animation-delay: 0.8s; }
+        .dot-seq-4 { animation: singleBounce 1.6s infinite; animation-delay: 1.2s; }
+    </style>
+</head>
+<body class="bg-agency-dark text-slate-100 font-['Plus_Jakarta_Sans'] antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- ÜST DUYURU / KAMPANYA BANDI (EN ÜSTTE SABİT) -->
+    <div class="sticky top-0 z-[60] bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600 text-white text-[10px] sm:text-xs font-extrabold tracking-wider text-center py-2.5 px-3 uppercase shadow-md flex items-center justify-center space-x-2">
+        <span>🚀</span>
+        <span>YENİ MÜŞTERİLERE ÖZEL 1 YIL DOMAİN VE HOSTİNG ÜCRETSİZ!</span>
+        <span>🎁</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-[37px] sm:top-[41px] z-50 backdrop-blur-xl bg-agency-dark/90 border-b border-agency-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="flex space-x-1 items-center">
+                    <div class="w-3.5 h-3.5 rounded-full bg-agency-yellow shadow-sm shadow-agency-yellow/50 dot-seq-1"></div>
+                    <div class="w-3.5 h-3.5 rounded-full bg-agency-lime shadow-sm shadow-agency-lime/50 -ml-2 dot-seq-2"></div>
+                    <div class="w-3.5 h-3.5 rounded-full bg-agency-cyan shadow-sm shadow-agency-cyan/50 -ml-2 dot-seq-3"></div>
+                    <div class="w-3.5 h-3.5 rounded-full bg-agency-pink shadow-sm shadow-agency-pink/50 -ml-2 dot-seq-4"></div>
+                </div>
+                <div>
+                    <span class="text-sm sm:text-lg font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-agency-cyan bg-clip-text text-transparent block">
+                        TAN MEDYA TASARIM
+                    </span>
+                    <span class="text-[8px] sm:text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase block -mt-1">
+                        Dijital Çözümler & Yazılım
+                    </span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="index.html" class="text-agency-cyan font-semibold">Ana Sayfa</a>
+                <a href="referanslar.html" class="hover:text-agency-cyan transition">Referanslar</a>
+                <a href="sablonlar.html" class="hover:text-agency-cyan transition">Şablon Kataloğu</a>
+                <a href="drone-cekimi.html" class="hover:text-agency-cyan transition">Drone Çekimi</a>
+                <a href="#iletisim" class="hover:text-agency-cyan transition">İletişim</a>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <!-- Direkt WhatsApp Butonu -->
+                <a href="https://wa.me/905010901722?text=Merhaba,%20Tan%20Medya%20Tasarım.%20Bilgi%20almak%20istiyorum." target="_blank" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-[11px] uppercase tracking-wider text-white shadow-lg transition">
+                    <span>💬 WhatsApp</span>
+                </a>
+                <a href="#iletisim" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 font-semibold text-[11px] sm:text-xs uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
+                    TEKLİF AL 🚀
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-16 sm:py-24 lg:py-36">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-gradient-to-tr from-cyan-500/10 via-pink-500/10 to-yellow-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold bg-agency-card border border-agency-border text-slate-300 mb-6 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-agency-lime animate-pulse"></span>
+                <span>Ankara Merkezli Profesyonel Dijital Ajans</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-[1.15]">
+                Markanızı Dijital Dünyada <span class="bg-gradient-to-r from-cyan-400 via-pink-500 to-yellow-400 bg-clip-text text-transparent">Zirveye Taşıyın</span>
+            </h1>
+            
+            <p class="mt-5 text-sm sm:text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                Modern web tasarımları, e-ticaret altyapıları, Google Maps SEO optimizasyonu ve profesyonel drone çekimleriyle işletmenize değer katıyoruz.
+            </p>
+
+            <!-- Ana Butonlar ve Yanıp Sönen Şablon Butonu -->
+            <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
+                <a href="referanslar.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 font-bold text-xs sm:text-sm text-white shadow-xl shadow-cyan-500/25 hover:opacity-95 transition">
+                    Referanslarımızı İnceleyin 🌐
+                </a>
+                
+                <!-- YANIP SÖNEN ÖRNEK ŞABLONLARA GÖZ AT BUTONU -->
+                <a href="sablonlar.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 font-bold text-xs sm:text-sm text-white shadow-xl shadow-pink-500/30 animate-pulse hover:scale-105 transition border border-pink-400/50 flex items-center justify-center space-x-2">
+                    <span>✨ Örnek Şablonlara Göz At</span>
+                </a>
+
+                <a href="https://wa.me/905010901722?text=Merhaba,%20Tan%20Medya%20Tasarım.%20Bilgi%20almak%20istiyorum." target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-xs sm:text-sm text-white shadow-xl transition flex items-center justify-center space-x-2">
+                    <span>💬 İletişim</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hizmetlerimiz Grid -->
+    <section id="hizmetler" class="py-16 sm:py-24 border-t border-agency-border bg-agency-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="text-agency-cyan text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] bg-agency-cyan/10 px-3 py-1 rounded-full border border-agency-cyan/20">Neler Yapıyoruz?</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold mt-3">Profesyonel Ajans Hizmetlerimiz</h2>
+                <p class="text-slate-400 mt-2 text-xs sm:text-base">İşletmenizi dijitalde öne geçirecek anahtar teslim çözümler.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Kart 1 -->
+                <div class="bg-agency-card p-6 sm:p-8 rounded-3xl border border-agency-border hover:border-cyan-500/50 transition group shadow-xl">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:scale-110 transition">💻</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">Web Tasarım & Yazılım</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Modern, hızlı, mobil uyumlu kurumsal web siteleri ve özel yazılım çözümleri.</p>
+                </div>
+                <!-- Kart 2 -->
+                <div class="bg-agency-card p-6 sm:p-8 rounded-3xl border border-agency-border hover:border-pink-500/50 transition group shadow-xl">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:scale-110 transition">🛍️</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">E-Ticaret Mağazaları</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Güvenli ödeme altyapılı, profesyonel e-ticaret siteleri kuruyoruz.</p>
+                </div>
+                <!-- Kart 3 -->
+                <div class="bg-agency-card p-6 sm:p-8 rounded-3xl border border-agency-border hover:border-yellow-500/50 transition group shadow-xl">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-400 text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:scale-110 transition">📍</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">Google Maps & Yerel SEO</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Yerel aramalarda üst sıralara çıkmanızı sağlıyoruz.</p>
+                </div>
+                <!-- Kart 4 -->
+                <div class="bg-agency-card p-6 sm:p-8 rounded-3xl border border-agency-border hover:border-lime-500/50 transition group shadow-xl">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-lime-500/10 border border-lime-500/20 flex items-center justify-center text-lime-400 text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:scale-110 transition">🚁</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">Profesyonel Drone Çekimi</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">4K havadan drone çekimleri ile işletmenizi ve projelerinizi öne çıkarın.</p>
+                </div>
+                <!-- Kart 5 -->
+                <div class="bg-agency-card p-6 sm:p-8 rounded-3xl border border-agency-border hover:border-indigo-500/50 transition group shadow-xl">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:scale-110 transition">🎨</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">Grafik & Dijital Baskı</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Kurumsal kimlik, logo ve dijital baskı çözümleri.</p>
+                </div>
+                <!-- Kart 6 -->
+                <div class="bg-agency-card p-6 sm:p-8 rounded-3xl border border-agency-border hover:border-rose-500/50 transition group shadow-xl">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 text-xl sm:text-2xl mb-5 sm:mb-6 group-hover:scale-110 transition">📱</div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">QR Menü & Sistemler</h3>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">Restoran ve kafeler için temassız QR menü altyapıları.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YENİ DRONE ÇEKİMİ ÖZEL BÖLÜMÜ -->
+    <section class="py-16 sm:py-24 border-t border-agency-border relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-10 pointer-events-none" style="background-image: url('https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div>
+                    <span class="text-lime-400 text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] bg-lime-500/10 px-3 py-1 rounded-full border border-lime-500/20">Havadan Görsel Şölen</span>
+                    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3 sm:mt-4">Profesyonel Drone Çekim Hizmetleri</h2>
+                    <p class="text-slate-300 mt-3 sm:mt-4 text-xs sm:text-base leading-relaxed">
+                        Ankara ve çevre illerde işletmenizi, fabrika sahalarınızı, gayrimenkul projelerinizi, düğün ve özel etkinliklerinizi 4K yüksek çözünürlüklü profesyonel havadan drone çekimleriyle ölümsüzleştiriyoruz.
+                    </p>
+                    <ul class="mt-5 sm:mt-6 space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center space-x-3">✅ <span>4K ve 2.7K Ultra HD Havadan Video Kaydı</span></li>
+                        <li class="flex items-center space-x-3">✅ <span>Gayrimenkul ve Arazi Tanıtım Gösterileri</span></li>
+                        <li class="flex items-center space-x-3">✅ <span>Özel Etkinlikler, Düğün ve Lansman Çekimleri</span></li>
+                    </ul>
+                    <div class="mt-7 sm:mt-8">
+                        <a href="drone-cekimi.html" class="inline-block px-7 py-3.5 rounded-xl bg-gradient-to-r from-lime-500 to-emerald-600 font-extrabold text-xs uppercase tracking-wider text-slate-950 shadow-lg hover:opacity-95 transition">
+                            Drone Çekimi Detayları 🚁
+                        </a>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden border border-agency-border shadow-2xl aspect-video bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1000&q=80" alt="Drone Çekimi" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-agency-dark/80 via-transparent to-transparent flex items-end p-4 sm:p-6">
+                        <span class="text-[11px] sm:text-xs font-mono bg-agency-dark/90 px-3 py-1.5 rounded-xl border border-agency-border text-lime-400">DJI Mini 3 Pro / 4K Ultra HD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim -->
+    <section id="iletisim" class="py-16 sm:py-24 border-t border-agency-border relative overflow-hidden bg-agency-card/20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-agency-card p-6 sm:p-14 rounded-[2rem] sm:rounded-[2.5rem] border border-agency-border shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="text-center mb-8 sm:mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Projenizi Konuşalım</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-2">Hemen formu doldurun veya WhatsApp üzerinden 0501 090 17 22 numaralı hattan bize ulaşın.</p>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Mesajınız başarıyla gönderildi!');" class="space-y-4 sm:space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                        <div>
+                            <label class="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Adınız Soyadınız</label>
+                            <input type="text" required placeholder="Mustafa Tan" class="w-full bg-agency-dark border border-agency-border rounded-xl px-4 py-3.5 text-xs sm:text-sm outline-none text-white">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Telefon Numaranız</label>
+                            <input type="tel" required placeholder="0501 ..." class="w-full bg-agency-dark border border-agency-border rounded-xl px-4 py-3.5 text-xs sm:text-sm outline-none text-white">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Mesajınız</label>
+                        <textarea rows="4" required placeholder="Proje detayları..." class="w-full bg-agency-dark border border-agency-border rounded-xl p-4 text-xs sm:text-sm outline-none resize-none text-white"></textarea>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <button type="submit" class="flex-1 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 font-extrabold text-xs sm:text-sm uppercase tracking-wider text-white shadow-lg transition">
+                            Teklif İste / Gönder ✉️
+                        </button>
+                        <a href="https://wa.me/905010901722?text=Merhaba,%20Tan%20Medya%20Tasarım.%20Web%20sitesi%20teklifi%20almak%20istiyorum." target="_blank" class="px-6 py-3.5 sm:py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-extrabold text-xs sm:text-sm uppercase tracking-wider text-white shadow-lg transition flex items-center justify-center space-x-2">
+                            <span>WhatsApp İle Bağlan 💬</span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-agency-dark border-t border-agency-border py-10 text-center text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full bg-agency-yellow dot-seq-1"></div>
+                <div class="w-3 h-3 rounded-full bg-agency-lime -ml-1.5 dot-seq-2"></div>
+                <div class="w-3 h-3 rounded-full bg-agency-cyan -ml-1.5 dot-seq-3"></div>
+                <div class="w-3 h-3 rounded-full bg-agency-pink -ml-1.5 dot-seq-4"></div>
+                <span class="font-bold text-slate-300 ml-2">TAN MEDYA TASARIM</span>
+            </div>
+            <p>&copy; 2026 Tan Medya Tasarım. Ankara / Türkiye. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>

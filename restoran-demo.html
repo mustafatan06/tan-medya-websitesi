@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet & Bean | Gourmet Cafe & Dijital QR Menü Sistemleri</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: {
+                            900: '#120d0b',
+                            950: '#090605'
+                        },
+                        gourmet: {
+                            800: '#1c1411',
+                            900: '#150f0d'
+                        },
+                        amberGold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-espresso-950 text-stone-200 antialiased selection:bg-amber-500 selection:text-espresso-950">
+
+    <!-- 1. SABİT UYARI BANTI (KIRMIZI) -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wider shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Restoran / İşletme Değildir.</span>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <header class="fixed top-8 sm:top-10 left-0 right-0 z-40 bg-espresso-900/90 backdrop-blur-md border-b border-amber-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-espresso-950 font-serif font-bold text-xl shadow-md">
+                    V
+                </div>
+                <div>
+                    <span class="block font-serif text-lg sm:text-xl font-bold tracking-wide text-white group-hover:text-amber-400 transition-colors">VELVET & BEAN</span>
+                    <span class="block text-[10px] sm:text-xs text-amber-500 uppercase tracking-widest">Gourmet Cafe & QR Menü</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-amber-400 hover:text-amber-300 transition-colors">Ana Sayfa</a>
+                <a href="#menu" class="text-stone-300 hover:text-amber-400 transition-colors">Dijital Menü</a>
+                <a href="#qr-sistem" class="text-stone-300 hover:text-amber-400 transition-colors">QR Menü Çözümü</a>
+                <a href="#rezervasyon" class="text-stone-300 hover:text-amber-400 transition-colors">Rezervasyon</a>
+                <a href="#iletisim" class="text-stone-300 hover:text-amber-400 transition-colors">İletişim</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center gap-3">
+                <button onclick="openQrModal()" class="px-4 py-2 rounded-full border border-amber-500/50 text-amber-400 hover:bg-amber-500/10 font-semibold text-xs transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-qrcode"></i> QR Menü İncele
+                </button>
+                <a href="#rezervasyon" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-espresso-950 font-semibold text-sm hover:from-amber-400 hover:to-amber-500 transition-all shadow-lg hover:shadow-amber-500/20">
+                    Masa Ayırt
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-stone-200 hover:text-amber-400 focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-espresso-900 border-b border-amber-500/20 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-amber-400 font-medium py-1">Ana Sayfa</a>
+            <a href="#menu" class="block text-stone-300 hover:text-amber-400 font-medium py-1">Dijital Menü</a>
+            <a href="#qr-sistem" class="block text-stone-300 hover:text-amber-400 font-medium py-1">QR Menü Çözümü</a>
+            <a href="#rezervasyon" class="block text-stone-300 hover:text-amber-400 font-medium py-1">Rezervasyon</a>
+            <a href="#iletisim" class="block text-stone-300 hover:text-amber-400 font-medium py-1">İletişim</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <button onclick="openQrModal()" class="w-full py-3 rounded-full border border-amber-500/50 text-amber-400 font-semibold text-sm">QR Menüyü Tarat</button>
+                <a href="#rezervasyon" class="block text-center w-full py-3 rounded-full bg-amber-500 text-espresso-950 font-semibold text-sm">Masa Ayırt</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION -->
+    <section id="hero" class="relative pt-36 md:pt-44 pb-32 bg-gradient-to-b from-espresso-900 via-espresso-950 to-espresso-950 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:32px_32px]"></div>
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-medium tracking-wide">
+                        <i class="fa-solid fa-mug-hot"></i> Yeni Nesil Temassız QR Menü & Gourmet Deneyim
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+                        Eşsiz Kahve Lezzetleri ve <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Dijital QR Menü</span> Gücü
+                    </h1>
+                    <p class="text-stone-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Velvet & Bean olarak taze çekirdek kahvelerimizi ve gurme lezzetlerimizi modern QR menü teknolojisiyle buluşturuyoruz. İşletmeniz için hızlı, şık ve güncellenebilir dijital menü sistemleri tasarlıyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <button onclick="openQrModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-espresso-950 font-bold text-sm hover:from-amber-400 hover:to-amber-500 transition-all shadow-xl flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-qrcode text-lg"></i> QR Menüyü Dene
+                        </button>
+                        <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-full border border-stone-700 hover:border-amber-500/50 text-stone-200 font-semibold text-sm transition-all text-center">
+                            Menüyü Keşfet
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-xs sm:max-w-sm rounded-3xl bg-gourmet-800 border-4 border-amber-500/30 p-4 shadow-2xl">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-5 bg-espresso-950 rounded-b-xl border-b border-amber-500/20"></div>
+                        <div class="bg-espresso-950 rounded-2xl p-6 text-center space-y-4 pt-8">
+                            <div class="w-24 h-24 mx-auto bg-white p-2 rounded-xl shadow-inner flex items-center justify-center">
+                                <i class="fa-solid fa-qrcode text-6xl text-espresso-950"></i>
+                            </div>
+                            <div>
+                                <span class="block font-serif font-bold text-white text-lg">Masa #04 Dijital Menü</span>
+                                <span class="block text-xs text-amber-400 mt-1">Velvet & Bean Gourmet</span>
+                            </div>
+                            <div class="pt-2 border-t border-stone-800 text-[11px] text-stone-400">
+                                Telefonunuzun kamerasını okutarak anında sipariş verin veya menüyü inceleyin.
+                            </div>
+                            <button onclick="openQrModal()" class="w-full py-2.5 rounded-lg bg-amber-500 text-espresso-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors">
+                                Canlı Menüyü Aç
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. INTERACTIVE QR MENU SHOWCASE -->
+    <section id="menu" class="py-24 bg-gourmet-900/50 border-t border-b border-amber-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium uppercase tracking-wider">
+                    Gurme Seçkisi
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    İnteraktif QR Menü Vitrini
+                </h2>
+                <p class="text-stone-400 text-sm sm:text-base">
+                    Kategorilere göre filtreleyin, ürün detaylarını ve fiyatları anında inceleyin.
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+                <button onclick="filterMenu('all')" id="tab-all" class="px-5 py-2.5 rounded-full bg-amber-500 text-espresso-950 font-bold text-xs sm:text-sm transition-all shadow-md">
+                    Tümü
+                </button>
+                <button onclick="filterMenu('kahve')" id="tab-kahve" class="px-5 py-2.5 rounded-full bg-gourmet-800 text-stone-300 font-semibold text-xs sm:text-sm hover:text-amber-400 transition-all border border-stone-800">
+                    Kahveler & Sıcaklar
+                </button>
+                <button onclick="filterMenu('burger')" id="tab-burger" class="px-5 py-2.5 rounded-full bg-gourmet-800 text-stone-300 font-semibold text-xs sm:text-sm hover:text-amber-400 transition-all border border-stone-800">
+                    Gourmet Burgerler
+                </button>
+                <button onclick="filterMenu('tatli')" id="tab-tatli" class="px-5 py-2.5 rounded-full bg-gourmet-800 text-stone-300 font-semibold text-xs sm:text-sm hover:text-amber-400 transition-all border border-stone-800">
+                    Tatlılar
+                </button>
+                <button onclick="filterMenu('icecek')" id="tab-icecek" class="px-5 py-2.5 rounded-full bg-gourmet-800 text-stone-300 font-semibold text-xs sm:text-sm hover:text-amber-400 transition-all border border-stone-800">
+                    İçecekler
+                </button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="menu-item bg-gourmet-800 border border-amber-500/20 rounded-xl overflow-hidden group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="kahve">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/150f0d/fbbf24?text=Signature+Latte" alt="Latte" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-amber-500 text-espresso-950 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Sıcak Kahve
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-espresso-950/90 backdrop-blur-md text-white font-serif font-bold px-3 py-1 rounded-lg text-base border border-amber-500/30">
+                            140 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-amber-400 transition-colors">
+                            Velvet Signature Latte
+                        </h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Özel kavrulmuş espresso çekirdekleri, kadifemsi buharda ısıtılmış süt ve hafif vanilya dokunuşu.
+                        </p>
+                        <div class="pt-2 flex items-center justify-between text-xs text-amber-500 font-medium">
+                            <span><i class="fa-solid fa-fire mr-1"></i> 180 kcal</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 5 dk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item bg-gourmet-800 border border-amber-500/20 rounded-xl overflow-hidden group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="burger">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/150f0d/fbbf24?text=Truflu+Burger" alt="Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-amber-500 text-espresso-950 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Gourmet Burger
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-espresso-950/90 backdrop-blur-md text-white font-serif font-bold px-3 py-1 rounded-lg text-base border border-amber-500/30">
+                            380 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-amber-400 transition-colors">
+                            Truffle & Cheddar Burger
+                        </h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            200gr dana antrikot köfte, eritilmiş aged cheddar, karamelize soğan ve ev yapımı truffle mayonez.
+                        </p>
+                        <div class="pt-2 flex items-center justify-between text-xs text-amber-500 font-medium">
+                            <span><i class="fa-solid fa-fire mr-1"></i> 850 kcal</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 15 dk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item bg-gourmet-800 border border-amber-500/20 rounded-xl overflow-hidden group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="tatli">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/150f0d/fbbf24?text=San+Sebastian" alt="Tatlı" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-amber-500 text-espresso-950 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Tatlı
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-espresso-950/90 backdrop-blur-md text-white font-serif font-bold px-3 py-1 rounded-lg text-base border border-amber-500/30">
+                            210 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-amber-400 transition-colors">
+                            Belçika Çikolatalı San Sebastian
+                        </h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            İçi akışkan, özel labne peynirli klasik tarif üzeri yoğun Belçika bitter ganaj sos eşliğinde.
+                        </p>
+                        <div class="pt-2 flex items-center justify-between text-xs text-amber-500 font-medium">
+                            <span><i class="fa-solid fa-fire mr-1"></i> 520 kcal</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 3 dk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-item bg-gourmet-800 border border-amber-500/20 rounded-xl overflow-hidden group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="kahve">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/150f0d/fbbf24?text=Flat+White" alt="Flat White" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-amber-500 text-espresso-950 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Sıcak Kahve
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-espresso-950/90 backdrop-blur-md text-white font-serif font-bold px-3 py-1 rounded-lg text-base border border-amber-500/30">
+                            130 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-amber-400 transition-colors">
+                            Artisan Flat White
+                        </h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Double ristretto shot ve ince mikroköpüklü kadifemsi sıcak süt dengesi.
+                        </p>
+                        <div class="pt-2 flex items-center justify-between text-xs text-amber-500 font-medium">
+                            <span><i class="fa-solid fa-fire mr-1"></i> 140 kcal</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 4 dk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="menu-item bg-gourmet-800 border border-amber-500/20 rounded-xl overflow-hidden group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="icecek">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/150f0d/fbbf24?text=Ice+Hibiscus+Tea" alt="Soğuk İçecek" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-amber-500 text-espresso-950 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Soğuk İçecek
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-espresso-950/90 backdrop-blur-md text-white font-serif font-bold px-3 py-1 rounded-lg text-base border border-amber-500/30">
+                            115 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-amber-400 transition-colors">
+                            Berry Hibiscus Cooler
+                        </h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Demleme hibiskus çayı, taze orman meyveleri, taze nane yaprakları ve buz kıracağı ile ferahlatıcı.
+                        </p>
+                        <div class="pt-2 flex items-center justify-between text-xs text-amber-500 font-medium">
+                            <span><i class="fa-solid fa-fire mr-1"></i> 90 kcal</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 3 dk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="menu-item bg-gourmet-800 border border-amber-500/20 rounded-xl overflow-hidden group hover:border-amber-500/60 transition-all duration-300 shadow-xl" data-category="tatli">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/150f0d/fbbf24?text=Tiramisu" alt="Tatlı" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-amber-500 text-espresso-950 text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Tatlı
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-espresso-950/90 backdrop-blur-md text-white font-serif font-bold px-3 py-1 rounded-lg text-base border border-amber-500/30">
+                            195 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-amber-400 transition-colors">
+                            İtalyan Usulü Mascarpone Tiramisu
+                        </h3>
+                        <p class="text-stone-400 text-xs leading-relaxed">
+                            Espresso ile ıslatılmış savoyard bisküvileri ve özel İtalyan mascarpone kreması dokunuşuyla.
+                        </p>
+                        <div class="pt-2 flex items-center justify-between text-xs text-amber-500 font-medium">
+                            <span><i class="fa-solid fa-fire mr-1"></i> 450 kcal</span>
+                            <span><i class="fa-solid fa-clock mr-1"></i> 3 dk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHY CHOOSE OUR QR MENU SYSTEM -->
+    <section id="qr-sistem" class="py-24 bg-espresso-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium uppercase tracking-wider">
+                    Teknolojik Üstünlük
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Neden Dijital QR Menü Sistemi?
+                </h2>
+                <p class="text-stone-400 text-sm sm:text-base">
+                    Kafe ve restoranınızın verimliliğini artıran, maliyetleri düşüren ve müşteri memnuniyetini zirveye taşıyan özellikler.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gourmet-800 border border-amber-500/20 p-8 rounded-xl shadow-lg space-y-4 text-center group hover:border-amber-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-amber-500 group-hover:text-espresso-950 transition-all">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Temassız & Hızlı</h3>
+                    <p class="text-stone-400 text-xs leading-relaxed">
+                        Fiziksel menü baskı maliyetine son. Saniyeler içinde telefon ekranından menüye erişim sağlayın.
+                    </p>
+                </div>
+
+                <div class="bg-gourmet-800 border border-amber-500/20 p-8 rounded-xl shadow-lg space-y-4 text-center group hover:border-amber-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-amber-500 group-hover:text-espresso-950 transition-all">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Anlık Fiyat & Stok Güncelleme</h3>
+                    <p class="text-stone-400 text-xs leading-relaxed">
+                        Fiyat değişikliklerini veya biten ürünleri tek tıkla panele girerek anında tüm masalara yansıtın.
+                    </p>
+                </div>
+
+                <div class="bg-gourmet-800 border border-amber-500/20 p-8 rounded-xl shadow-lg space-y-4 text-center group hover:border-amber-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-amber-500 group-hover:text-espresso-950 transition-all">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Çoklu Dil Desteği</h3>
+                    <p class="text-stone-400 text-xs leading-relaxed">
+                        Turist müşterileriniz için Türkçe, İngilizce, Almanca ve Arapça gibi çoklu dil seçenekleriyle hizmet sunun.
+                    </p>
+                </div>
+
+                <div class="bg-gourmet-800 border border-amber-500/20 p-8 rounded-xl shadow-lg space-y-4 text-center group hover:border-amber-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-amber-500 group-hover:text-espresso-950 transition-all">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Detaylı İstatistikler</h3>
+                    <p class="text-stone-400 text-xs leading-relaxed">
+                        Hangi ürünün daha çok tıklandığını, en popüler saatleri ve müşteri tercihlerini raporlayın.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TABLE RESERVATION & DEMO REQUEST FORM -->
+    <section id="rezervasyon" class="py-24 bg-gourmet-900/40 border-t border-amber-500/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium uppercase tracking-wider">
+                        İletişim & Rezervasyon
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Masa Ayırtın veya QR Sistemini Test Edin
+                    </h2>
+                    <p class="text-stone-300 text-sm leading-relaxed">
+                        İster kafemizde harika bir kahve içmek için masa ayırtın, ister işletmeniz için QR menü demosu talep edin.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Şube Adresi</h3>
+                                <p class="text-stone-400 text-xs mt-1">Bağdat Cad. No: 142/A, Kadıköy / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Rezervasyon & Bilgi</h3>
+                                <p class="text-stone-400 text-xs mt-1">+90 (216) 555 09 44</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">E-Posta</h3>
+                                <p class="text-stone-400 text-xs mt-1">iletisim@velvetbeanornek.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-gourmet-800 border border-amber-500/20 rounded-xl p-8 shadow-2xl">
+                    <h3 class="font-serif font-bold text-white text-2xl mb-2">Rezervasyon / Demo Formu</h3>
+                    <p class="text-stone-400 text-xs mb-6">Bilgilerinizi bırakın, ekibimiz sizinle en kısa sürede iletişime geçsin.</p>
+
+                    <form id="reservation-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Adınız Soyadınız *</label>
+                                <input type="text" required class="w-full bg-espresso-950 border border-stone-800 rounded-lg px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-amber-500 transition-colors" placeholder="Zeynep Kaya">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Telefon Numarası *</label>
+                                <input type="tel" required class="w-full bg-espresso-950 border border-stone-800 rounded-lg px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-amber-500 transition-colors" placeholder="0532 000 00 00">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">İşlem Türü *</label>
+                                <select class="w-full bg-espresso-950 border border-stone-800 rounded-lg px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option>Masa Rezervasyonu</option>
+                                    <option>QR Menü Sistemleri Demo</option>
+                                    <option>Özel Etkinlik / Toplantı</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Tarih *</label>
+                                <input type="date" required class="w-full bg-espresso-950 border border-stone-800 rounded-lg px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Kişi / Saat *</label>
+                                <input type="text" required class="w-full bg-espresso-950 border border-stone-800 rounded-lg px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-amber-500 transition-colors" placeholder="2 Kişi - 19:30">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-stone-300 uppercase tracking-wider mb-2">Özel Notunuz *</label>
+                            <textarea rows="3" required class="w-full bg-espresso-950 border border-stone-800 rounded-lg px-4 py-3 text-stone-200 text-sm focus:outline-none focus:border-amber-500 transition-colors" placeholder="Belirtmek istediğiniz özel bir istek..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-espresso-950 font-bold text-sm hover:from-amber-400 hover:to-amber-500 transition-all shadow-lg">
+                            Talebi Gönder
+                        </button>
+                    </form>
+
+                    <div id="success-msg" class="hidden mt-4 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-base mb-1 block"></i>
+                        Talebiniz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçilecektir. (Örnek Tasarım Bildirimi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROFESSIONAL FOOTER WITH TAN MEDYA TASARIM BRANDING -->
+    <footer class="bg-espresso-900 border-t border-amber-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-espresso-950 font-serif font-bold text-sm">
+                            V
+                        </div>
+                        <span class="font-serif text-lg font-bold text-white tracking-wide">VELVET & BEAN</span>
+                    </div>
+                    <p class="text-stone-400 text-xs leading-relaxed max-w-sm">
+                        Gourmet kahve deneyimi ve işletmeler için modern temassız dijital QR menü sistemleri.
+                    </p>
+                    <div class="text-xs text-red-400 font-semibold bg-red-950/50 p-2.5 rounded border border-red-500/30 inline-block">
+                        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Restoran / İşletme Değildir.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-amber-400">Hızlı Linkler</h4>
+                    <ul class="space-y-2 text-xs text-stone-400">
+                        <li><a href="#hero" class="hover:text-amber-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#menu" class="hover:text-amber-400 transition-colors">Dijital Menü</a></li>
+                        <li><a href="#qr-sistem" class="hover:text-amber-400 transition-colors">QR Menü Özellikleri</a></li>
+                        <li><a href="#rezervasyon" class="hover:text-amber-400 transition-colors">Rezervasyon</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-amber-400">Yasal / Bilgi</h4>
+                    <ul class="space-y-2 text-xs text-stone-400">
+                        <li><a href="#" class="hover:text-amber-400 transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition-colors">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition-colors">Çerez Politikası</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition-colors">Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-stone-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+                <p>&copy; 2026 Velvet & Bean. Tüm hakları saklıdır. (Örnek Tasarım)</p>
+                <p class="mt-2 sm:mt-0">Profesyonel Web & QR Menü Tasarımı: <span class="text-amber-400 font-medium">Tan Medya Tasarım</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR CODE MODAL SIMULATION -->
+    <div id="qr-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-gourmet-800 border border-amber-500/40 rounded-2xl max-w-md w-full p-6 sm:p-8 text-center relative shadow-2xl space-y-6">
+            <button onclick="closeQrModal()" class="absolute top-4 right-4 text-stone-400 hover:text-white text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-2">
+                <span class="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold uppercase tracking-wider">Canlı Simülasyon</span>
+                <h3 class="font-serif font-bold text-white text-2xl">Velvet & Bean Dijital QR Menü</h3>
+                <p class="text-stone-400 text-xs">Müşterilerinizin akıllı telefonlarında göreceği örnek interaktif dijital menü önizlemesi.</p>
+            </div>
+            <div class="bg-espresso-950 p-6 rounded-xl border border-stone-800 space-y-4">
+                <div class="w-32 h-32 mx-auto bg-white p-2 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-qrcode text-8xl text-espresso-950"></i>
+                </div>
+                <div class="text-xs text-stone-300 font-medium">
+                    Masa No: <span class="text-amber-400 font-bold">VIP-01</span> • Sürüm: <span class="text-amber-400 font-bold">v3.4</span>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="closeQrModal()" class="flex-1 py-3 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 font-semibold text-xs transition-colors">
+                    Kapat
+                </button>
+                <a href="#menu" onclick="closeQrModal()" class="flex-1 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-espresso-950 font-bold text-xs transition-colors text-center flex items-center justify-center">
+                    Menüye Git
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Menu Filtering Logic
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            const tabs = ['all', 'kahve', 'burger', 'tatli', 'icecek'];
+
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                if(tab === category) {
+                    btn.className = "px-5 py-2.5 rounded-full bg-amber-500 text-espresso-950 font-bold text-xs sm:text-sm transition-all shadow-md";
+                } else {
+                    btn.className = "px-5 py-2.5 rounded-full bg-gourmet-800 text-stone-300 font-semibold text-xs sm:text-sm hover:text-amber-400 transition-all border border-stone-800";
+                }
+            });
+
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if(category === 'all' || itemCategory === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // QR Modal Controls
+        function openQrModal() {
+            document.getElementById('qr-modal').classList.remove('hidden');
+        }
+
+        function closeQrModal() {
+            document.getElementById('qr-modal').classList.add('hidden');
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('reservation-form').reset();
+            setTimeout(() => {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>

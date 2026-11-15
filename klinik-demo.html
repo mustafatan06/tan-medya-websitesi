@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaDent & Estetik | Diş ve Sağlık Kliniği</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clinical: {
+                            800: '#0c2340',
+                            900: '#07162c',
+                            950: '#040b17'
+                        },
+                        teal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-clinical-950 text-slate-200 antialiased selection:bg-teal-500 selection:text-clinical-950">
+
+    <!-- SABİT UYARI BANTI (KIRMIZI) -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wider shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Klinik / Sağlık Kuruluşu Değildir.</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="fixed top-8 sm:top-10 left-0 right-0 z-40 bg-clinical-900/90 backdrop-blur-md border-b border-teal-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-clinical-950 font-serif font-bold text-xl shadow-md">
+                    VD
+                </div>
+                <div>
+                    <span class="block font-serif text-lg sm:text-xl font-bold tracking-wide text-white group-hover:text-teal-400 transition-colors">VİTADENT & ESTETİK</span>
+                    <span class="block text-[10px] sm:text-xs text-teal-400 uppercase tracking-widest">Ağız, Diş ve Sağlık Kliniği</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-teal-400 hover:text-teal-300 transition-colors">Ana Sayfa</a>
+                <a href="#hakkimizda" class="text-slate-300 hover:text-teal-400 transition-colors">Hakkımızda</a>
+                <a href="#hizmetler" class="text-slate-300 hover:text-teal-400 transition-colors">Tedavilerimiz</a>
+                <a href="#ekip" class="text-slate-300 hover:text-teal-400 transition-colors">Hekimlerimiz</a>
+                <a href="#iletisim" class="text-slate-300 hover:text-teal-400 transition-colors">İletişim & Randevu</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#iletisim" class="px-5 py-2.5 rounded-md bg-gradient-to-r from-teal-500 to-teal-600 text-clinical-950 font-semibold text-sm hover:from-teal-400 hover:to-teal-500 transition-all shadow-lg hover:shadow-teal-500/20">
+                    Online Randevu
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-200 hover:text-teal-400 focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-clinical-900 border-b border-teal-500/20 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-teal-400 font-medium py-1">Ana Sayfa</a>
+            <a href="#hakkimizda" class="block text-slate-300 hover:text-teal-400 font-medium py-1">Hakkımızda</a>
+            <a href="#hizmetler" class="block text-slate-300 hover:text-teal-400 font-medium py-1">Tedavilerimiz</a>
+            <a href="#ekip" class="block text-slate-300 hover:text-teal-400 font-medium py-1">Hekimlerimiz</a>
+            <a href="#iletisim" class="block text-slate-300 hover:text-teal-400 font-medium py-1">İletişim & Randevu</a>
+            <div class="pt-2">
+                <a href="#iletisim" class="block text-center w-full py-3 rounded-md bg-teal-500 text-clinical-950 font-semibold text-sm">Online Randevu</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-36 md:pt-44 pb-24 md:pb-36 bg-gradient-to-b from-clinical-900 via-clinical-950 to-clinical-950 overflow-hidden">
+        <!-- Background decorative glow -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#2dd4bf_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs sm:text-sm font-medium tracking-wide">
+                        <i class="fa-solid fa-tooth"></i> Modern Diş Hekimliği & Estetik Gülüşler
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+                        Sağlıklı ve <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">Özgüvenli Gülüşler</span> İçin Buradayız
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        İleri teknoloji cihazlarımız, uzman hekim kadromuz ve kişiye özel tedavi planlarımızla diş sağlığınızı güvence altına alıyor, hayalinizdeki gülümsemeyi tasarlıyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#iletisim" class="w-full sm:w-auto px-8 py-4 rounded-md bg-gradient-to-r from-teal-500 to-teal-600 text-clinical-950 font-semibold hover:from-teal-400 hover:to-teal-500 transition-all shadow-xl text-center">
+                            Hemen Randevu Alın
+                        </a>
+                        <a href="#hizmetler" class="w-full sm:w-auto px-8 py-4 rounded-md bg-clinical-900 border border-teal-500/30 text-teal-400 font-semibold hover:bg-teal-500/10 transition-all text-center">
+                            Tedavilerimizi İnceleyin
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800/80 text-center lg:text-left">
+                        <div>
+                            <span class="block font-serif text-3xl font-bold text-teal-400">12+</span>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider">Yıllık Tecrübe</span>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-3xl font-bold text-teal-400">10.000+</span>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider">Mutlu Hasta</span>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-3xl font-bold text-teal-400">%99</span>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider">Memnuniyet Oranı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual / Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-teal-500 to-clinical-800 opacity-30 blur-lg"></div>
+                        <div class="relative bg-clinical-900 border border-teal-500/30 p-8 rounded-2xl shadow-2xl space-y-6">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center text-xl">
+                                        <i class="fa-solid fa-stethoscope"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif font-bold text-white text-lg">VIP Klinik Hizmeti</h3>
+                                        <p class="text-xs text-slate-400">Acil ve Rutin Kontroller</p>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold">Açık / Randevulu</span>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="text-teal-400 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-200">Ağrısız & Acısız Tedavi</h4>
+                                        <p class="text-xs text-slate-400">Son teknoloji sedasyon ve lokal anestezi yöntemleri.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="text-teal-400 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-200">3D Dijital Gülüş Tasarımı</h4>
+                                        <p class="text-xs text-slate-400">Tedavi öncesi yeni gülüşünüzü ekranda görün.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="text-teal-400 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-200">Steril & Hijyenik Ortam</h4>
+                                        <p class="text-xs text-slate-400">Uluslararası sterilizasyon standartları.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="#iletisim" class="block w-full py-3 text-center rounded-lg bg-clinical-950 border border-teal-500/40 text-teal-400 font-medium text-sm hover:bg-teal-500 hover:text-clinical-950 transition-all">
+                                    Hızlı Randevu Alın
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAKKIMIZDA SECTION -->
+    <section id="hakkimizda" class="py-24 bg-clinical-900/50 border-t border-b border-teal-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Image / Visual Side -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-teal-500/30 shadow-2xl">
+                        <img src="https://placehold.co/600x450/07162c/2dd4bf?text=VitaDent+Klinik+Ici" alt="Klinik Görseli" class="w-full h-auto object-cover opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-clinical-950 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 bg-clinical-900/90 backdrop-blur border border-teal-500/20 rounded-xl">
+                            <p class="font-serif italic text-teal-400 text-sm">"Güzel bir gülümseme, en iyi ilk izlenimdir."</p>
+                            <span class="block mt-2 text-xs font-semibold text-slate-300 uppercase tracking-widest">— Dt. Zeynep Kaya & Uzm. Dr. Can Demir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-medium uppercase tracking-wider">
+                        Hakkımızda
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Modern Diş Hekimliğinde Güvenilir Adresiniz
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        VitaDent & Estetik Kliniği olarak, hasta memnuniyetini ve konforunu her şeyin üzerinde tutuyoruz. Uzman hekim kadromuz, son teknoloji görüntüleme ve tedavi sistemlerimizle diş hekimliği korkusunu geride bırakıyor, sağlığınızı estetikle buluşturuyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 bg-clinical-900 p-4 rounded-xl border border-slate-800">
+                            <div class="text-teal-400 text-xl"><i class="fa-solid fa-microscope"></i></div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">İleri Teknoloji</h3>
+                                <p class="text-xs text-slate-400 mt-1">Dijital ölçü ve lazer destekli operasyonlar.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-clinical-900 p-4 rounded-xl border border-slate-800">
+                            <div class="text-teal-400 text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">Kişiye Özel Yaklaşım</h3>
+                                <p class="text-xs text-slate-400 mt-1">Her hastaya özel ağız ve diş sağlığı programı.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#iletisim" class="inline-flex items-center gap-2 text-teal-400 font-semibold hover:text-teal-300 transition-colors">
+                            <span>Klinik Ücretlerimiz & Randevu</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEDAVİLER / HİZMETLER -->
+    <section id="hizmetler" class="py-24 bg-clinical-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-medium uppercase tracking-wider">
+                    Tedavilerimiz
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Uzmanlık Alanlarımız ve Hizmetler
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Estetik diş hekimliğinden cerrahi operasyonlara kadar geniş bir yelpazede profesyonel çözümler sunuyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl p-8 hover:border-teal-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-clinical-950 transition-all">
+                        <i class="fa-solid fa-tooth"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">İmplant Tedavisi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Eksik dişlerinizin yerine doğal dişlerinizi aratmayacak kaliteli titanyum implant uygulamaları ve cerrahi süreçler.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-400 group-hover:underline">
+                        Bilgi Alın <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl p-8 hover:border-teal-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-clinical-950 transition-all">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Ortodonti (Diş Teli / Şeffaf Plak)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Çapraşık dişleriniz için görünmez şeffaf plaklar (telsiz ortodonti) ve klasik tel tedavileri ile düzgün sıralama.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-400 group-hover:underline">
+                        Bilgi Alın <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl p-8 hover:border-teal-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-clinical-950 transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Gülüş Tasarımı (Smile Design)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Yüz hatlarınıza, dudak yapınıza ve karakterinize en uygun Hollywood gülüşü tasarımı ile estetik dönüşüm.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-400 group-hover:underline">
+                        Bilgi Alın <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl p-8 hover:border-teal-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-clinical-950 transition-all">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Diş Beyazlatma (Bleaching)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Klinik ortamında profesyonel lazer destekli beyazlatma yöntemleriyle dişlerinizde birkaç ton daha parlak görünüm.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-400 group-hover:underline">
+                        Bilgi Alın <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl p-8 hover:border-teal-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-clinical-950 transition-all">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Çocuk Diş Hekimliği (Pedodonti)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Çocuklarımızın diş hekimi korkusu yaşamadan, eğlenceli ve güvenli bir ortamda koruyucu diş sağlığı tedavileri.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-400 group-hover:underline">
+                        Bilgi Alın <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl p-8 hover:border-teal-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-teal-500 group-hover:text-clinical-950 transition-all">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Kanal Tedavisi ve Dolgu</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Hasar görmüş veya çürümüş dişlerinizi kurtarmak için modern endodonti teknikleri ve estetik kompozit dolgular.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-teal-400 group-hover:underline">
+                        Bilgi Alın <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HEKİMLERİMİZ / EKİP -->
+    <section id="ekip" class="py-24 bg-clinical-900/40 border-t border-teal-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-medium uppercase tracking-wider">
+                    Uzman Kadro
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Hekimlerimizle Tanışın
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Alanında uluslararası deneyime sahip, güler yüzlü ve uzman hekim kadromuzla hizmetinizdeyiz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Person 1 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://placehold.co/400x300/07162c/2dd4bf?text=Dt.+Zeynep+Kaya" alt="Dt. Zeynep Kaya" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-clinical-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 text-center -mt-12 relative z-10">
+                        <div class="w-20 h-20 rounded-full border-4 border-clinical-900 bg-clinical-950 overflow-hidden mx-auto mb-4 shadow-md">
+                            <img src="https://placehold.co/200x200/07162c/2dd4bf?text=Z.K." alt="Z.K." class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl">Dt. Zeynep Kaya</h3>
+                        <p class="text-xs text-teal-400 font-semibold uppercase tracking-wider mt-1">Kurucu Diş Hekimi / Estetik Diş Hekimliği</p>
+                        <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                            Hacettepe Üniversitesi Diş Hekimliği Fakültesi mezunu. Estetik gülüş tasarımı ve porselen laminate veneer uygulamalarında uzmanlaşmıştır.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Person 2 -->
+                <div class="bg-clinical-900 border border-teal-500/20 rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://placehold.co/400x300/07162c/2dd4bf?text=Uzm.+Dr.+Can+Demir" alt="Uzm. Dr. Can Demir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-clinical-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 text-center -mt-12 relative z-10">
+                        <div class="w-20 h-20 rounded-full border-4 border-clinical-900 bg-clinical-950 overflow-hidden mx-auto mb-4 shadow-md">
+                            <img src="https://placehold.co/200x200/07162c/2dd4bf?text=C.D." alt="C.D." class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl">Uzm. Dr. Can Demir</h3>
+                        <p class="text-xs text-teal-400 font-semibold uppercase tracking-wider mt-1">Ağız, Diş ve Çene Cerrahı</p>
+                        <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                            İstanbul Üniversitesi Diş Hekimliği Çene Cerrahisi doktora mezunu. İmplantoloj ve gömülü diş operasyonları üzerine 10+ yıl deneyime sahip.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM & RANDEVU SECTION -->
+    <section id="iletisim" class="py-24 bg-clinical-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Info Side -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-medium uppercase tracking-wider">
+                        İletişim & Randevu
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Sağlıklı Bir Gülüş İçin Randevunuzu Alın
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Kliniğimize gelmek ya da ön görüşme yapmak için formu doldurabilir veya iletişim bilgilerimizden bize hemen ulaşabilirsiniz.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Klinik Adresi</h3>
+                                <p class="text-slate-400 text-xs mt-1">Bağdat Caddesi No: 142, Kat: 3, Kadıköy / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Telefon & WhatsApp</h3>
+                                <p class="text-slate-400 text-xs mt-1">+90 (216) 444 02 34</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">E-Posta</h3>
+                                <p class="text-slate-400 text-xs mt-1">randevu@vitadentornek.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="lg:col-span-7 bg-clinical-900 border border-teal-500/20 rounded-2xl p-8 shadow-2xl relative">
+                    <h3 class="font-serif font-bold text-white text-2xl mb-2">Online Randevu Formu</h3>
+                    <p class="text-slate-400 text-xs mb-6">Formu doldurun, randevu koordinatörümüz en kısa sürede saatinizi onaylamak için arasın.</p>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Adınız Soyadınız *</label>
+                                <input type="text" required class="w-full bg-clinical-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-teal-500 transition-colors" placeholder="Ayşe Yılmaz">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Telefon Numarası *</label>
+                                <input type="tel" required class="w-full bg-clinical-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-teal-500 transition-colors" placeholder="0532 000 00 00">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Tercih Edilen Tarih *</label>
+                                <input type="date" required class="w-full bg-clinical-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-teal-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">İstediğiniz Tedavi *</label>
+                                <select class="w-full bg-clinical-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-teal-500 transition-colors">
+                                    <option>İmplant Tedavisi</option>
+                                    <option>Ortodonti (Şeffaf Plak / Tel)</option>
+                                    <option>Gülüş Tasarımı</option>
+                                    <option>Diş Beyazlatma</option>
+                                    <option>Çocuk Diş Hekimliği</option>
+                                    <option>Genel Diş Muayenesi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Şikayetiniz veya Notunuz *</label>
+                            <textarea rows="4" required class="w-full bg-clinical-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-teal-500 transition-colors" placeholder="Belirtmek istediğiniz özel bir durum veya ağrı var mı?..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 text-clinical-950 font-bold text-sm hover:from-teal-400 hover:to-teal-500 transition-all shadow-lg">
+                            Randevu Talebini Gönder
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box (Hidden by default) -->
+                    <div id="success-msg" class="hidden mt-4 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-base mb-1 block"></i>
+                        Randevu talebiniz başarıyla alınmıştır. En kısa sürede sizinle telefonla iletişime geçilecektir. (Örnek Tasarım Bildirimi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-clinical-900 border-t border-teal-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Col 1 -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-teal-500 flex items-center justify-center text-clinical-950 font-serif font-bold text-sm">
+                            VD
+                        </div>
+                        <span class="font-serif text-lg font-bold text-white tracking-wide">VİTADENT & ESTETİK</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Ağız ve diş sağlığınızda güvenilir, modern ve konforlu çözümler. Estetik gülüşler için uzman hekim desteği.
+                    </p>
+                    <div class="text-xs text-red-400 font-semibold bg-red-950/50 p-2.5 rounded border border-red-500/30 inline-block">
+                        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Klinik / Sağlık Kuruluşu Değildir.
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-teal-400">Hızlı Linkler</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#hero" class="hover:text-teal-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#hakkimizda" class="hover:text-teal-400 transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hizmetler" class="hover:text-teal-400 transition-colors">Tedavilerimiz</a></li>
+                        <li><a href="#ekip" class="hover:text-teal-400 transition-colors">Hekimlerimiz</a></li>
+                        <li><a href="#iletisim" class="hover:text-teal-400 transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-teal-400">Yasal / Bilgi</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Hasta Hakları</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 VitaDent & Estetik. Tüm hakları saklıdır. (Örnek Tasarım)</p>
+                <p class="mt-2 sm:mt-0">Tasarım: <span class="text-teal-400 font-medium">Tan Medya Tasarım</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submit Handler (without alert)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>

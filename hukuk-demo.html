@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex & Finans | Hukuk ve Mali Müşavirlik Bürosu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0c1b33',
+                            900: '#071120',
+                            950: '#040a14'
+                        },
+                        gold: {
+                            400: '#dfb768',
+                            500: '#c5a059',
+                            600: '#a6823c'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-200 antialiased selection:bg-gold-500 selection:text-navy-950">
+
+    <!-- SABİT UYARI BANTI (KIRMIZI) -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wider shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Hukuk Bürosu Değildir.</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="fixed top-8 sm:top-10 left-0 right-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-gold-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-navy-950 font-serif font-bold text-xl shadow-md">
+                    L&F
+                </div>
+                <div>
+                    <span class="block font-serif text-lg sm:text-xl font-bold tracking-wide text-white group-hover:text-gold-400 transition-colors">LEX & FİNANS</span>
+                    <span class="block text-[10px] sm:text-xs text-gold-500 uppercase tracking-widest">Hukuk & Mali Müşavirlik</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-gold-400 hover:text-gold-300 transition-colors">Ana Sayfa</a>
+                <a href="#hakkimizda" class="text-slate-300 hover:text-gold-400 transition-colors">Hakkımızda</a>
+                <a href="#hizmetler" class="text-slate-300 hover:text-gold-400 transition-colors">Uzmanlık Alanları</a>
+                <a href="#ekip" class="text-slate-300 hover:text-gold-400 transition-colors">Kadromuz</a>
+                <a href="#iletisim" class="text-slate-300 hover:text-gold-400 transition-colors">İletişim</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#iletisim" class="px-5 py-2.5 rounded-md bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg hover:shadow-gold-500/20">
+                    Randevu Alın
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-200 hover:text-gold-400 focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-gold-500/20 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-gold-400 font-medium py-1">Ana Sayfa</a>
+            <a href="#hakkimizda" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Hakkımızda</a>
+            <a href="#hizmetler" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Uzmanlık Alanları</a>
+            <a href="#ekip" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Kadromuz</a>
+            <a href="#iletisim" class="block text-slate-300 hover:text-gold-400 font-medium py-1">İletişim</a>
+            <div class="pt-2">
+                <a href="#iletisim" class="block text-center w-full py-3 rounded-md bg-gold-500 text-navy-950 font-semibold text-sm">Randevu Alın</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-36 md:pt-44 pb-24 md:pb-36 bg-gradient-to-b from-navy-900 via-navy-950 to-navy-950 overflow-hidden">
+        <!-- Background decorative grid / glow -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#c5a059_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs sm:text-sm font-medium tracking-wide">
+                        <i class="fa-solid fa-scale-balanced"></i> Hukuki ve Mali Çözümlerde Güvence
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+                        Şirketiniz İçin <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">Güçlü Hukuki ve Mali</span> Rehberlik
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Karmaşık mevzuatlar arasında kaybolmayın. Avukatlık ve mali müşavirlik hizmetlerimizi entegre bir şekilde sunarak ticari ve hukuki risklerinizi güvence altına alıyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#iletisim" class="w-full sm:w-auto px-8 py-4 rounded-md bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold hover:from-gold-400 hover:to-gold-500 transition-all shadow-xl text-center">
+                            Ücretsiz Danışmanlık Alın
+                        </a>
+                        <a href="#hizmetler" class="w-full sm:w-auto px-8 py-4 rounded-md bg-navy-900 border border-gold-500/30 text-gold-400 font-semibold hover:bg-gold-500/10 transition-all text-center">
+                            Hizmetlerimizi İnceleyin
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800/80 text-center lg:text-left">
+                        <div>
+                            <span class="block font-serif text-3xl font-bold text-gold-400">15+</span>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider">Yıllık Tecrübe</span>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-3xl font-bold text-gold-400">500+</span>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider">Kurumsal Müvekkil</span>
+                        </div>
+                        <div>
+                            <span class="block font-serif text-3xl font-bold text-gold-400">%98</span>
+                            <span class="text-xs text-slate-400 uppercase tracking-wider">Başarı Oranı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual / Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-gold-500 to-navy-800 opacity-30 blur-lg"></div>
+                        <div class="relative bg-navy-900 border border-gold-500/30 p-8 rounded-2xl shadow-2xl space-y-6">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif font-bold text-white text-lg">Güvenli İş Ortaklığı</h3>
+                                        <p class="text-xs text-slate-400">Hukuk & Muhasebe Sinerjisi</p>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold">Aktif Hizmet</span>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="text-gold-400 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-200">Vergi ve Muhasebe Denetimi</h4>
+                                        <p class="text-xs text-slate-400">Mali tablolarınızın tam uyumlulukla hazırlanması.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="text-gold-400 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-200">Ticari Davalar ve Sözleşmeler</h4>
+                                        <p class="text-xs text-slate-400">Şirket sözleşmelerinin profesyonel incelenmesi.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="text-gold-400 mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-slate-200">Şirket Kuruluş ve Yapılandırma</h4>
+                                        <p class="text-xs text-slate-400">Anahtar teslim anonim ve limited şirket kuruluşları.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="#iletisim" class="block w-full py-3 text-center rounded-lg bg-navy-950 border border-gold-500/40 text-gold-400 font-medium text-sm hover:bg-gold-500 hover:text-navy-950 transition-all">
+                                    Hızlı İletişim Hattı
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAKKIMIZDA SECTION -->
+    <section id="hakkimizda" class="py-24 bg-navy-900/50 border-t border-b border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Image / Visual Side -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl">
+                        <img src="https://placehold.co/600x450/071120/c5a059?text=Lex+%26+Finans+Ofis" alt="Ofis Görseli" class="w-full h-auto object-cover opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 bg-navy-900/90 backdrop-blur border border-gold-500/20 rounded-xl">
+                            <p class="font-serif italic text-gold-400 text-sm">"Hukuk ve mali disiplin, sürdürülebilir büyümenin temel direğidir."</p>
+                            <span class="block mt-2 text-xs font-semibold text-slate-300 uppercase tracking-widest">— Av. Mehmet Demir & SMMM Ahmet Yılmaz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        Hakkımızda
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Hukuk ve Mali Müşavirliği Tek Çatıda Buluşturuyoruz
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Lex & Finans olarak, iş dünyasının en büyük gereksinimlerinden biri olan hukuki güvenlik ile mali hassasiyeti tek bir çatı altında birleştiriyoruz. Alanında uzman avukatlarımız ve yeminli mali müşavirlerimizle müvekkillerimizin tüm finansal ve hukuki süreçlerini proaktif bir yaklaşımla yönetiyoruz.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 bg-navy-900 p-4 rounded-xl border border-slate-800">
+                            <div class="text-gold-400 text-xl"><i class="fa-solid fa-chess-knight"></i></div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">Stratejik Planlama</h3>
+                                <p class="text-xs text-slate-400 mt-1">Riskleri önceden öngören analitik yaklaşım.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-navy-900 p-4 rounded-xl border border-slate-800">
+                            <div class="text-gold-400 text-xl"><i class="fa-solid fa-handshake"></i></div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">Şeffaf İletişim</h3>
+                                <p class="text-xs text-slate-400 mt-1">Her aşamada eksiksiz ve şeffaf bilgilendirme.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#iletisim" class="inline-flex items-center gap-2 text-gold-400 font-semibold hover:text-gold-300 transition-colors">
+                            <span>Bizimle Tanışın</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UZMANLIK ALANLARI / HİZMETLER -->
+    <section id="hizmetler" class="py-24 bg-navy-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                    Hizmetlerimiz
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Uzmanlık Alanlarımız
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Şirketinizin ve bireysel varlıklarınızın korunması için geniş bir yelpazede profesyonel hizmet sunuyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl p-8 hover:border-gold-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-gavel"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Hukuki Danışmanlık</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Ticari faaliyetlerinizin yürütülmesinde doğabilecek hukuki uyuşmazlıkları önleyici danışmanlık hizmetleri.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 group-hover:underline">
+                        Detaylı Bilgi <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl p-8 hover:border-gold-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Şirket Kuruluşu</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Anonim, limited ve şube kuruluş işlemlerinden ana sözleşme hazırlığına kadar eksiksiz anahtar teslim süreçler.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 group-hover:underline">
+                        Detaylı Bilgi <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl p-8 hover:border-gold-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Vergi ve Muhasebe</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Vergi beyannamelerinin düzenlenmesi, defter tutma süreçleri ve güncel vergi mevzuatına tam uyumluluk danışmanlığı.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 group-hover:underline">
+                        Detaylı Bilgi <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl p-8 hover:border-gold-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">İş Hukuku & Personel</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        İşçi-işveren ilişkileri, özlük dosyaları, bordrolama ve iş hukuku davalarında hukuki ve mali güvence.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 group-hover:underline">
+                        Detaylı Bilgi <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl p-8 hover:border-gold-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Sözleşme Yönetimi</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Ticari sözleşmelerin hazırlanması, incelenmesi, revize edilmesi ve ihtilafların önlenmesine yönelik hukuki denetim.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 group-hover:underline">
+                        Detaylı Bilgi <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl p-8 hover:border-gold-500/60 transition-all duration-300 group shadow-lg">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-xl mb-3">Finansal Denetim</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Şirketlerin iç denetim mekanizmalarının kurulması, mali analiz raporlaması ve bütçe planlaması hizmetleri.
+                    </p>
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 group-hover:underline">
+                        Detaylı Bilgi <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKİP / KADROMUZ -->
+    <section id="ekip" class="py-24 bg-navy-900/40 border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                    Uzman Kadro
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Yönetici Ortaklarımız
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Alanlarında uzun yıllara dayanan deneyime sahip profesyonel kadromuzla yanınızdayız.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Person 1 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://placehold.co/400x300/071120/c5a059?text=Av.+Mehmet+Demir" alt="Av. Mehmet Demir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 text-center -mt-12 relative z-10">
+                        <div class="w-20 h-20 rounded-full border-4 border-navy-900 bg-navy-950 overflow-hidden mx-auto mb-4 shadow-md">
+                            <img src="https://placehold.co/200x200/071120/c5a059?text=M.D." alt="M.D." class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl">Av. Mehmet Demir</h3>
+                        <p class="text-xs text-gold-400 font-semibold uppercase tracking-wider mt-1">Kurucu Avukat / Ticaret Hukuku</p>
+                        <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                            İstanbul Üniversitesi Hukuk Fakültesi mezunu olup, 15 yılı aşkın süredir şirketler hukuku ve ticari davalar alanında uzmanlaşmıştır.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Person 2 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-xl overflow-hidden shadow-lg group">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://placehold.co/400x300/071120/c5a059?text=SMMM+Ahmet+Yilmaz" alt="SMMM Ahmet Yılmaz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6 text-center -mt-12 relative z-10">
+                        <div class="w-20 h-20 rounded-full border-4 border-navy-900 bg-navy-950 overflow-hidden mx-auto mb-4 shadow-md">
+                            <img src="https://placehold.co/200x200/071120/c5a059?text=A.Y." alt="A.Y." class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl">SMMM Ahmet Yılmaz</h3>
+                        <p class="text-xs text-gold-400 font-semibold uppercase tracking-wider mt-1">Yeminli Mali Müşavir / Vergi Uzmanı</p>
+                        <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                            Marmara Üniversitesi İİBF mezunu. Bağımsız denetçi ve mali müşavir olarak çok sayıda kurumsal firmaya vergi danışmanlığı yapmıştır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM SECTION -->
+    <section id="iletisim" class="py-24 bg-navy-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Info Side -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        İletişim
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Sorularınız İçin Bize Ulaşın
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Hukuki ve mali danışmanlık talepleriniz için aşağıdaki formu doldurabilir ya da doğrudan iletişim kanallarımızdan bize erişebilirsiniz.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Merkez Ofis</h3>
+                                <p class="text-slate-400 text-xs mt-1">Levent Mah. Büyükdere Cad. No: 199, Kat: 8, Şişli / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Telefon</h3>
+                                <p class="text-slate-400 text-xs mt-1">+90 (212) 555 01 99</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">E-Posta</h3>
+                                <p class="text-slate-400 text-xs mt-1">bilgi@lexfinansornek.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="lg:col-span-7 bg-navy-900 border border-gold-500/20 rounded-2xl p-8 shadow-2xl relative">
+                    <h3 class="font-serif font-bold text-white text-2xl mb-2">Danışmanlık Talep Formu</h3>
+                    <p class="text-slate-400 text-xs mb-6">Formu doldurun, uzman ekibimiz en kısa sürede sizinle iletişime geçsin.</p>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Adınız Soyadınız *</label>
+                                <input type="text" required class="w-full bg-navy-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="Ahmet Yılmaz">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Telefon Numarası *</label>
+                                <input type="tel" required class="w-full bg-navy-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="0532 000 00 00">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">E-Posta Adresi *</label>
+                                <input type="email" required class="w-full bg-navy-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="ornek@sirket.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Hizmet Türü *</label>
+                                <select class="w-full bg-navy-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                                    <option>Hukuki Danışmanlık</option>
+                                    <option>Şirket Kuruluşu</option>
+                                    <option>Vergi ve Mali Müşavirlik</option>
+                                    <option>İş Hukuku</option>
+                                    <option>Diğer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Mesajınız *</label>
+                            <textarea rows="4" required class="w-full bg-navy-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="Danışmak istediğiniz konuyu kısaca özetleyin..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-bold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg">
+                            Formu Gönder
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box (Hidden by default) -->
+                    <div id="success-msg" class="hidden mt-4 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-base mb-1 block"></i>
+                        Mesajınız başarıyla alınmıştır. En kısa sürede sizinle iletişime geçilecektir. (Örnek Tasarım Bildirimi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 border-t border-gold-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Col 1 -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-gold-500 flex items-center justify-center text-navy-950 font-serif font-bold text-sm">
+                            L&F
+                        </div>
+                        <span class="font-serif text-lg font-bold text-white tracking-wide">LEX & FİNANS</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Hukuk ve mali müşavirlik alanlarında kurumsal çözüm ortağınız. Ticari ve yasal süreçlerinizde güvenilir rehberlik.
+                    </p>
+                    <div class="text-xs text-red-400 font-semibold bg-red-950/50 p-2.5 rounded border border-red-500/30 inline-block">
+                        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Hukuk Bürosu Değildir.
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-gold-400">Hızlı Linkler</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#hero" class="hover:text-gold-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#hakkimizda" class="hover:text-gold-400 transition-colors">Hakkımızda</a></li>
+                        <li><a href="#hizmetler" class="hover:text-gold-400 transition-colors">Uzmanlık Alanları</a></li>
+                        <li><a href="#ekip" class="hover:text-gold-400 transition-colors">Yönetici Kadro</a></li>
+                        <li><a href="#iletisim" class="hover:text-gold-400 transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-gold-400">Yasal / Bilgi</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Çerez Politikası</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Lex & Finans. Tüm hakları saklıdır. (Örnek Tasarım)</p>
+                <p class="mt-2 sm:mt-0">Tasarım: <span class="text-gold-400 font-medium">Tan Medya Tasarım</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submit Handler (without alert)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>

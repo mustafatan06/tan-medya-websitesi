@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestij Gayrimenkul | Lüks Konut & Yatırım Danışmanlığı</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#132247',
+                            900: '#0a1128',
+                            950: '#050a14'
+                        },
+                        gold: {
+                            400: '#e8c865',
+                            500: '#d4af37',
+                            600: '#b89228'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-200 antialiased selection:bg-gold-500 selection:text-navy-950">
+
+    <!-- SABİT UYARI BANTI (KIRMIZI) -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wider shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Emlak Ofisi / Gayrimenkul Danışmanlığı Değildir.</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="fixed top-8 sm:top-10 left-0 right-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-gold-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-sm bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-navy-950 font-serif font-bold text-xl shadow-md">
+                    P
+                </div>
+                <div>
+                    <span class="block font-serif text-lg sm:text-xl font-bold tracking-wide text-white group-hover:text-gold-400 transition-colors">PRESTİJ</span>
+                    <span class="block text-[10px] sm:text-xs text-gold-400 uppercase tracking-widest">Gayrimenkul Yatırım</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-gold-400 hover:text-gold-300 transition-colors">Ana Sayfa</a>
+                <a href="#portfoy" class="text-slate-300 hover:text-gold-400 transition-colors">Portföyümüz</a>
+                <a href="#neden-biz" class="text-slate-300 hover:text-gold-400 transition-colors">Neden Biz?</a>
+                <a href="#hesaplama" class="text-slate-300 hover:text-gold-400 transition-colors">Kredi Hesapla</a>
+                <a href="#iletisim" class="text-slate-300 hover:text-gold-400 transition-colors">İletişim</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#iletisim" class="px-5 py-2.5 rounded-sm bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-semibold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg hover:shadow-gold-500/20">
+                    VIP Danışmanlık
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-200 hover:text-gold-400 focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-gold-500/20 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-gold-400 font-medium py-1">Ana Sayfa</a>
+            <a href="#portfoy" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Portföyümüz</a>
+            <a href="#neden-biz" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Neden Biz?</a>
+            <a href="#hesaplama" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Kredi Hesapla</a>
+            <a href="#iletisim" class="block text-slate-300 hover:text-gold-400 font-medium py-1">İletişim</a>
+            <div class="pt-2">
+                <a href="#iletisim" class="block text-center w-full py-3 rounded-sm bg-gold-500 text-navy-950 font-semibold text-sm">VIP Danışmanlık</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH PROPERTY SEARCH TABS -->
+    <section id="hero" class="relative pt-36 md:pt-44 pb-32 bg-gradient-to-b from-navy-900 via-navy-950 to-navy-950 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:32px_32px]"></div>
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-6 mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs sm:text-sm font-medium tracking-wide">
+                    <i class="fa-solid fa-gem"></i> Lüks Gayrimenkul & Yatırım Danışmanlığı
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+                    Hayalinizdeki <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-200">Prestijli Yaşam</span> Burada Başlıyor
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg font-light leading-relaxed">
+                    İstanbul ve seçkin bölgelerde en özel villalar, boğaz manzaralı rezidanslar ve yüksek getirili ticari gayrimenkullerle yatırımınıza değer katıyoruz.
+                </p>
+            </div>
+
+            <!-- SEARCH FILTER WIDGET -->
+            <div class="max-w-4xl mx-auto bg-navy-900/90 backdrop-blur-md border border-gold-500/30 rounded-xl p-6 sm:p-8 shadow-2xl">
+                <!-- Tabs: Satılık / Kiralık -->
+                <div class="flex gap-2 mb-6 border-b border-slate-800 pb-4">
+                    <button onclick="switchTab('satilik')" id="btn-satilik" class="px-6 py-2.5 rounded-sm bg-gold-500 text-navy-950 font-bold text-xs sm:text-sm transition-all shadow-md">
+                        Satılık
+                    </button>
+                    <button onclick="switchTab('kiralik')" id="btn-kiralik" class="px-6 py-2.5 rounded-sm bg-navy-950 text-slate-300 font-semibold text-xs sm:text-sm hover:text-gold-400 transition-all border border-slate-800">
+                        Kiralık
+                    </button>
+                </div>
+
+                <form onsubmit="handleSearch(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-gold-400 uppercase tracking-wider mb-2">Gayrimenkul Tipi</label>
+                        <select class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>Tüm Tipler</option>
+                            <option>Lüks Villa</option>
+                            <option>Rezidans / Daire</option>
+                            <option>Arsa & Arazi</option>
+                            <option>İş Yeri / Ofis</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-gold-400 uppercase tracking-wider mb-2">Lokasyon</label>
+                        <select class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>Tüm Lokasyonlar</option>
+                            <option>Beşiktaş / Bebek</option>
+                            <option>Sarıyer / Tarabya</option>
+                            <option>Kadıköy / Moda</option>
+                            <option>Bodrum / Yalıkavak</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold text-gold-400 uppercase tracking-wider mb-2">Maksimum Fiyat</label>
+                        <select class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>Fırsat / Sınır Yok</option>
+                            <option>25.000.000 ₺'ye Kadar</option>
+                            <option>50.000.000 ₺'ye Kadar</option>
+                            <option>100.000.000 ₺ ve Üzeri</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full py-3.5 rounded-sm bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-bold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass"></i> Portföyde Ara
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PROPERTIES SECTION -->
+    <section id="portfoy" class="py-24 bg-navy-900/50 border-t border-b border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div class="space-y-4 max-w-xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        Seçkin Portföy
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                        Öne Çıkan Lüks Gayrimenkuller
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Özenle seçilmiş, yüksek standartlara sahip villa ve rezidanslarımızı keşfedin.
+                    </p>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="#iletisim" class="inline-flex items-center gap-2 text-gold-400 font-semibold text-sm hover:text-gold-300 transition-colors">
+                        <span>Tüm Portföyü Görüntüle</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-lg overflow-hidden group hover:border-gold-500/60 transition-all duration-300 shadow-xl">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x400/0a1128/e8c865?text=Bebek+Luks+Villa" alt="Villa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-gold-500 text-navy-950 text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
+                            Satılık • VIP
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-navy-950/80 backdrop-blur-md text-white font-serif font-bold px-4 py-1.5 rounded-sm text-lg border border-gold-500/30">
+                            78.000.000 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center text-xs text-gold-400 gap-1.5">
+                            <i class="fa-solid fa-location-dot"></i> Beşiktaş, Bebek / İstanbul
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                            Boğaz Manzaralı Özel Tasarım Müstakil Villa
+                        </h3>
+                        <p class="text-slate-400 text-xs leading-relaxed line-clamp-2">
+                            Geniş bahçesi, özel yüzme havuzu ve kesintisiz Boğaz manzarasıyla lüksün ve konforun doruk noktası.
+                        </p>
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-800 text-xs text-slate-300 text-center font-medium">
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-bed text-gold-400 mr-1"></i> 6 Yatak Odası</div>
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-bath text-gold-400 mr-1"></i> 5 Banyo</div>
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-ruler-combined text-gold-400 mr-1"></i> 650 m²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-lg overflow-hidden group hover:border-gold-500/60 transition-all duration-300 shadow-xl">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x400/0a1128/e8c865?text=Levent+Rezidans" alt="Rezidans" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-gold-500 text-navy-950 text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
+                            Satılık • Rezidans
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-navy-950/80 backdrop-blur-md text-white font-serif font-bold px-4 py-1.5 rounded-sm text-lg border border-gold-500/30">
+                            42.500.000 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center text-xs text-gold-400 gap-1.5">
+                            <i class="fa-solid fa-location-dot"></i> Levent, Beşiktaş / İstanbul
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                            Penthouse Katı Tam Donanımlı Akıllı Rezidans
+                        </h3>
+                        <p class="text-slate-400 text-xs leading-relaxed line-clamp-2">
+                            Şehir merkezinde, 7/24 güvenlik, kapalı otopark ve sosyal donatılara sahip prestijli kulede ayrıcalıklı yaşam.
+                        </p>
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-800 text-xs text-slate-300 text-center font-medium">
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-bed text-gold-400 mr-1"></i> 3 Yatak Odası</div>
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-bath text-gold-400 mr-1"></i> 3 Banyo</div>
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-ruler-combined text-gold-400 mr-1"></i> 320 m²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="bg-navy-900 border border-gold-500/20 rounded-lg overflow-hidden group hover:border-gold-500/60 transition-all duration-300 shadow-xl">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x400/0a1128/e8c865?text=Bodrum+Yalikavak+Villa" alt="Villa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-gold-500 text-navy-950 text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">
+                            Satılık • Deniz Manzaralı
+                        </div>
+                        <div class="absolute bottom-4 right-4 bg-navy-950/80 backdrop-blur-md text-white font-serif font-bold px-4 py-1.5 rounded-sm text-lg border border-gold-500/30">
+                            95.000.000 ₺
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center text-xs text-gold-400 gap-1.5">
+                            <i class="fa-solid fa-location-dot"></i> Yalıkavak, Bodrum / Muğla
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                            Özel Plajlı ve İskeleli Bodrum Villası
+                        </h3>
+                        <p class="text-slate-400 text-xs leading-relaxed line-clamp-2">
+                            Ege'nin maviliğine sıfır konumda, modern mimariyle inşa edilmiş müstakil yaşam alanı.
+                        </p>
+                        <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-800 text-xs text-slate-300 text-center font-medium">
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-bed text-gold-400 mr-1"></i> 5 Yatak Odası</div>
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-bath text-gold-400 mr-1"></i> 5 Banyo</div>
+                            <div class="bg-navy-950 py-2 rounded border border-slate-800"><i class="fa-solid fa-ruler-combined text-gold-400 mr-1"></i> 550 m²</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEDEN BİZ? SECTION -->
+    <section id="neden-biz" class="py-24 bg-navy-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                    Kurumsal Güvence
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Neden Prestij Gayrimenkul?
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Yatırımlarınızı en doğru şekilde yönlendirmek ve süreci şeffaflıkla yönetmek için yanınızdayız.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-navy-900 border border-gold-500/20 p-8 rounded-lg shadow-lg space-y-4 text-center group hover:border-gold-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Profesyonel Pazar Analizi</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Bölgesel değer artış oranları ve doğru ekspertiz raporlarıyla kârlı yatırımlar yapın.
+                    </p>
+                </div>
+
+                <div class="bg-navy-900 border border-gold-500/20 p-8 rounded-lg shadow-lg space-y-4 text-center group hover:border-gold-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">VIP Müşteri Danışmanlığı</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Size özel atanan gayrimenkul danışmanınız ile 7/24 kesintisiz destek ve rehberlik.
+                    </p>
+                </div>
+
+                <div class="bg-navy-900 border border-gold-500/20 p-8 rounded-lg shadow-lg space-y-4 text-center group hover:border-gold-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Hukuki Güvence</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Tapu devri, sözleşmeler ve yasal süreçlerin tamamında uzman hukuk ekibi desteği.
+                    </p>
+                </div>
+
+                <div class="bg-navy-900 border border-gold-500/20 p-8 rounded-lg shadow-lg space-y-4 text-center group hover:border-gold-500/60 transition-all">
+                    <div class="w-14 h-14 rounded-full bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl mx-auto group-hover:bg-gold-500 group-hover:text-navy-950 transition-all">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-white text-lg">Geniş Yatırım Ağları</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Yerli ve uluslararası yatırımcı havuzu ile mülklerinize en hızlı alıcı veya kiracı bulma imkanı.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MORTGAGE & LOAN CALCULATOR SECTION -->
+    <section id="hesaplama" class="py-24 bg-navy-900/40 border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        Finansal Planlama
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Konut Kredisi ve Yatırım Hesaplayıcı
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Almak istediğiniz gayrimenkul için kredi tutarı, vade ve faiz oranlarını girerek tahmini aylık taksit tutarını anında hesaplayın.
+                    </p>
+                    <div class="space-y-3 pt-2 text-xs text-slate-400">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> Anlaşmalı bankalarla özel oranlar</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-400"></i> Hızlı ön onay süreci</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-navy-900 border border-gold-500/20 rounded-xl p-8 shadow-2xl">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Kredi Tutarı (TL): <span id="val-tutar" class="text-gold-400 font-bold">5.000.000 ₺</span></label>
+                            <input type="range" id="input-tutar" min="500000" max="30000000" step="500000" value="5000000" oninput="hesaplaKredi()" class="w-full accent-gold-500 bg-navy-950 cursor-pointer">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Vade (Ay): <span id="val-vade" class="text-gold-400 font-bold">120 Ay</span></label>
+                                <input type="range" id="input-vade" min="12" max="240" step="12" value="120" oninput="hesaplaKredi()" class="w-full accent-gold-500 bg-navy-950 cursor-pointer">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Aylık Faiz Oranı (%): <span id="val-faiz" class="text-gold-400 font-bold">2.89%</span></label>
+                                <input type="range" id="input-faiz" min="1.0" max="5.0" step="0.1" value="2.89" oninput="hesaplaKredi()" class="w-full accent-gold-500 bg-navy-950 cursor-pointer">
+                            </div>
+                        </div>
+
+                        <div class="p-6 bg-navy-950 rounded-lg border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <span class="block text-xs text-slate-400 uppercase tracking-wider">Tahmini Aylık Taksit</span>
+                                <span id="sonuc-taksit" class="font-serif font-bold text-2xl text-gold-400">156.420 ₺</span>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400 uppercase tracking-wider">Toplam Geri Ödeme</span>
+                                <span id="sonuc-toplam" class="font-serif font-bold text-lg text-slate-200">18.770.400 ₺</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İLETİŞİM & DANIŞMANLIK FORMU -->
+    <section id="iletisim" class="py-24 bg-navy-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        İletişim
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Gayrimenkul Uzmanımızla Görüşün
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Mülkünüzü satmak, kiralamak veya lüks bir gayrimenkul yatırımı yapmak için formu doldurun, sizi hemen arayalım.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Merkez Ofis</h3>
+                                <p class="text-slate-400 text-xs mt-1">Büyükdere Cad. No: 199, Levent / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Telefon</h3>
+                                <p class="text-slate-400 text-xs mt-1">+90 (212) 555 01 99</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">E-Posta</h3>
+                                <p class="text-slate-400 text-xs mt-1">iletisim@prestijgayrimenkulornek.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-navy-900 border border-gold-500/20 rounded-xl p-8 shadow-2xl">
+                    <h3 class="font-serif font-bold text-white text-2xl mb-2">Danışmanlık Talep Formu</h3>
+                    <p class="text-slate-400 text-xs mb-6">Bilgilerinizi bırakın, uzman portföy danışmanımız size özel seçeneklerle dönüş yapsın.</p>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Adınız Soyadınız *</label>
+                                <input type="text" required class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="Ahmet Yılmaz">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Telefon Numarası *</label>
+                                <input type="tel" required class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="0532 000 00 00">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">İlgi Alanınız *</label>
+                                <select class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                                    <option>Villa Satın Alma</option>
+                                    <option>Rezidans Yatırımı</option>
+                                    <option>Mülkümü Satmak / Kiraya Vermek İstiyorum</option>
+                                    <option>Ticari Gayrimenkul</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Bütçe Aralığı *</label>
+                                <select class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                                    <option>20M - 50M TL</option>
+                                    <option>50M - 100M TL</option>
+                                    <option>100M TL ve Üzeri</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Notunuz / Talebiniz *</label>
+                            <textarea rows="4" required class="w-full bg-navy-950 border border-slate-800 rounded-sm px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="Aradığınız özellikler veya eklemek istedikleriniz..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-sm bg-gradient-to-r from-gold-500 to-gold-600 text-navy-950 font-bold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg">
+                            Talebi Gönder
+                        </button>
+                    </form>
+
+                    <div id="success-msg" class="hidden mt-4 p-4 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-base mb-1 block"></i>
+                        Danışmanlık talebiniz alınmıştır. En kısa sürede sizinle iletişime geçilecektir. (Örnek Tasarım Bildirimi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 border-t border-gold-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-sm bg-gold-500 flex items-center justify-center text-navy-950 font-serif font-bold text-sm">
+                            P
+                        </div>
+                        <span class="font-serif text-lg font-bold text-white tracking-wide">PRESTİJ GAYRİMENKUL</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Lüks gayrimenkul yatırımları, özel portföy yönetimi ve profesyonel danışmanlık hizmetleri.
+                    </p>
+                    <div class="text-xs text-red-400 font-semibold bg-red-950/50 p-2.5 rounded border border-red-500/30 inline-block">
+                        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Emlak Ofisi / Gayrimenkul Danışmanlığı Değildir.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-gold-400">Hızlı Linkler</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#hero" class="hover:text-gold-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#portfoy" class="hover:text-gold-400 transition-colors">Portföy</a></li>
+                        <li><a href="#neden-biz" class="hover:text-gold-400 transition-colors">Neden Biz?</a></li>
+                        <li><a href="#hesaplama" class="hover:text-gold-400 transition-colors">Kredi Hesapla</a></li>
+                        <li><a href="#iletisim" class="hover:text-gold-400 transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-gold-400">Yasal / Bilgi</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Ekspertiz Şartları</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Prestij Gayrimenkul. Tüm hakları saklıdır. (Örnek Tasarım)</p>
+                <p class="mt-2 sm:mt-0">Tasarım: <span class="text-gold-400 font-medium">Tan Medya Tasarım</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hero Search Tabs Switcher
+        function switchTab(type) {
+            const btnSatilik = document.getElementById('btn-satilik');
+            const btnKiralik = document.getElementById('btn-kiralik');
+            if(type === 'satilik') {
+                btnSatilik.className = "px-6 py-2.5 rounded-sm bg-gold-500 text-navy-950 font-bold text-xs sm:text-sm transition-all shadow-md";
+                btnKiralik.className = "px-6 py-2.5 rounded-sm bg-navy-950 text-slate-300 font-semibold text-xs sm:text-sm hover:text-gold-400 transition-all border border-slate-800";
+            } else {
+                btnKiralik.className = "px-6 py-2.5 rounded-sm bg-gold-500 text-navy-950 font-bold text-xs sm:text-sm transition-all shadow-md";
+                btnSatilik.className = "px-6 py-2.5 rounded-sm bg-navy-950 text-slate-300 font-semibold text-xs sm:text-sm hover:text-gold-400 transition-all border border-slate-800";
+            }
+        }
+
+        // Mortgage Calculator Logic
+        function hesaplaKredi() {
+            const tutar = parseFloat(document.getElementById('input-tutar').value);
+            const vade = parseInt(document.getElementById('input-vade').value);
+            const aylikFaiz = parseFloat(document.getElementById('input-faiz').value) / 100;
+
+            document.getElementById('val-tutar').innerText = tutar.toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('val-vade').innerText = vade + ' Ay';
+            document.getElementById('val-faiz').innerText = (aylikFaiz * 100).toFixed(2) + '%';
+
+            // Simple annuity mortgage formula
+            let taksit = 0;
+            if(aylikFaiz === 0) {
+                taksit = tutar / vade;
+            } else {
+                taksit = (tutar * aylikFaiz * Math.pow(1 + aylikFaiz, vade)) / (Math.pow(1 + aylikFaiz, vade) - 1);
+            }
+
+            const toplamOdeme = taksit * vade;
+
+            document.getElementById('sonuc-taksit').innerText = Math.round(taksit).toLocaleString('tr-TR') + ' ₺';
+            document.getElementById('sonuc-toplam').innerText = Math.round(toplamOdeme).toLocaleString('tr-TR') + ' ₺';
+        }
+
+        // Initialize calculator on load
+        window.onload = function() {
+            hesaplaKredi();
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        function handleSearch(event) {
+            event.preventDefault();
+            document.getElementById('portfoy').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

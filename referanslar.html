@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tan Medya Tasarım | Referans Projelerimiz</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        agency: {
+                            dark: '#05070d',
+                            card: '#0f1423',
+                            border: '#1e263f',
+                            cyan: '#06b6d4',
+                            pink: '#ec4899',
+                            lime: '#84cc16',
+                            yellow: '#eab308'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @keyframes singleBounce {
+            0%, 25%, 100% { transform: translateY(0); }
+            12.5% { transform: translateY(-9px); }
+        }
+        .dot-seq-1 { animation: singleBounce 1.6s infinite; animation-delay: 0s; }
+        .dot-seq-2 { animation: singleBounce 1.6s infinite; animation-delay: 0.4s; }
+        .dot-seq-3 { animation: singleBounce 1.6s infinite; animation-delay: 0.8s; }
+        .dot-seq-4 { animation: singleBounce 1.6s infinite; animation-delay: 1.2s; }
+    </style>
+</head>
+<body class="bg-agency-dark text-slate-100 font-['Plus_Jakarta_Sans'] antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Üst Kampanya Bandı -->
+    <div class="bg-gradient-to-r from-cyan-600 via-indigo-600 to-pink-600 text-white text-[10px] sm:text-xs font-extrabold tracking-wider text-center py-2 px-3 uppercase shadow-md flex items-center justify-center space-x-2">
+        <span>🚀</span>
+        <span>YENİ MÜŞTERİLERE ÖZEL 1 YIL DOMAİN VE HOSTİNG ÜCRETSİZ!</span>
+        <span>🎁</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-agency-dark/90 border-b border-agency-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="flex space-x-1 items-center">
+                    <div class="w-3 h-3 rounded-full bg-agency-yellow dot-seq-1"></div>
+                    <div class="w-3 h-3 rounded-full bg-agency-lime -ml-1.5 dot-seq-2"></div>
+                    <div class="w-3 h-3 rounded-full bg-agency-cyan -ml-1.5 dot-seq-3"></div>
+                    <div class="w-3 h-3 rounded-full bg-agency-pink -ml-1.5 dot-seq-4"></div>
+                </div>
+                <div>
+                    <span class="text-sm sm:text-lg font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-agency-cyan bg-clip-text text-transparent block">
+                        TAN MEDYA TASARIM
+                    </span>
+                    <span class="text-[8px] sm:text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase block -mt-1">
+                        Portfolyo & Referanslar
+                    </span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="index.html" class="hover:text-agency-cyan transition">Ana Sayfa</a>
+                <a href="referanslar.html" class="text-agency-cyan font-semibold">Referanslar</a>
+                <a href="sablonlar.html" class="hover:text-agency-cyan transition">Şablon Kataloğu</a>
+                <a href="drone-cekimi.html" class="hover:text-agency-cyan transition">Drone Çekimi</a>
+                <a href="index.html#iletisim" class="hover:text-agency-cyan transition">İletişim</a>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <a href="https://wa.me/905010901722?text=Merhaba,%20Tan%20Medya%20Tasarım.%20Projeleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-[11px] uppercase tracking-wider text-white shadow-lg transition">
+                    <span>💬 WhatsApp</span>
+                </a>
+                <a href="index.html#iletisim" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 font-semibold text-[11px] sm:text-xs uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
+                    TEKLİF AL 🚀
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sayfa Başlığı -->
+    <section class="py-12 sm:py-16 text-center relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="text-agency-cyan text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] bg-agency-cyan/10 px-3 py-1 rounded-full border border-agency-cyan/20">Portfolyo & Başarı Hikayeleri</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold mt-4">Bazı Referanslarımız</h1>
+            <p class="text-slate-400 mt-3 max-w-xl mx-auto text-xs sm:text-base">Tan Medya Tasarım altyapısıyla hayata geçirdiğimiz seçkin web projeleri ve canlı dijital çözümler.</p>
+        </div>
+    </section>
+
+    <!-- Referans Kartları Grid Alanı (Tarayıcı Pencereli Özel Tasarım) -->
+    <section class="pb-24 sm:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- 1. Trend Tan -->
+                <div class="bg-agency-card rounded-3xl border border-agency-border overflow-hidden shadow-2xl hover:border-cyan-500/50 transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Tarayıcı Penceresi Mockup -->
+                        <div class="w-full bg-slate-950 border-b border-agency-border">
+                            <div class="bg-slate-900 px-4 py-2.5 flex items-center space-x-2 border-b border-agency-border/50">
+                                <div class="flex space-x-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                                </div>
+                                <div class="flex-1 text-center">
+                                    <span class="text-[10px] sm:text-xs font-mono text-cyan-400 bg-agency-dark px-3 py-0.5 rounded-md border border-agency-border">https://www.trendtan.com</span>
+                                </div>
+                            </div>
+                            <div class="h-44 sm:h-48 bg-gradient-to-br from-cyan-950/40 via-slate-950 to-indigo-950/40 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                                <span class="text-4xl mb-2">🌐</span>
+                                <span class="text-base font-extrabold text-white tracking-wider">Trend Tan Dijital</span>
+                                <span class="text-xs text-cyan-400 font-mono mt-1">trendtan.com</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-widest bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">Kurumsal / E-Ticaret</span>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mt-3">Trend Tan</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">Modern web arayüzü ve özel dijital altyapı çözümleri.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6 pt-0">
+                        <a href="https://www.trendtan.com" target="_blank" class="w-full py-3 rounded-xl bg-agency-dark border border-agency-border hover:border-cyan-500 text-cyan-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                            <span>Web Sitesine Git ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Fethiye Ela Nakliyat -->
+                <div class="bg-agency-card rounded-3xl border border-agency-border overflow-hidden shadow-2xl hover:border-pink-500/50 transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Tarayıcı Penceresi Mockup -->
+                        <div class="w-full bg-slate-950 border-b border-agency-border">
+                            <div class="bg-slate-900 px-4 py-2.5 flex items-center space-x-2 border-b border-agency-border/50">
+                                <div class="flex space-x-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                                </div>
+                                <div class="flex-1 text-center">
+                                    <span class="text-[10px] sm:text-xs font-mono text-pink-400 bg-agency-dark px-3 py-0.5 rounded-md border border-agency-border">https://www.fethiyeelanakliyat.com</span>
+                                </div>
+                            </div>
+                            <div class="h-44 sm:h-48 bg-gradient-to-br from-pink-950/40 via-slate-950 to-purple-950/40 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[radial-gradient(#ec4899_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                                <span class="text-4xl mb-2">🚚</span>
+                                <span class="text-base font-extrabold text-white tracking-wider">Fethiye Ela Nakliyat</span>
+                                <span class="text-xs text-pink-400 font-mono mt-1">fethiyeelanakliyat.com</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <span class="text-[10px] font-bold text-pink-400 uppercase tracking-widest bg-pink-500/10 px-2.5 py-1 rounded-md border border-pink-500/20">Lojistik & Taşımacılık</span>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mt-3">Fethiye Ela Nakliyat</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">Mobil uyumlu kurumsal tanıtım ve müşteri iletişim altyapısı.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6 pt-0">
+                        <a href="https://www.fethiyeelanakliyat.com" target="_blank" class="w-full py-3 rounded-xl bg-agency-dark border border-agency-border hover:border-pink-500 text-pink-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                            <span>Web Sitesine Git ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Bölge Yemek -->
+                <div class="bg-agency-card rounded-3xl border border-agency-border overflow-hidden shadow-2xl hover:border-yellow-500/50 transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Tarayıcı Penceresi Mockup -->
+                        <div class="w-full bg-slate-950 border-b border-agency-border">
+                            <div class="bg-slate-900 px-4 py-2.5 flex items-center space-x-2 border-b border-agency-border/50">
+                                <div class="flex space-x-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                                </div>
+                                <div class="flex-1 text-center">
+                                    <span class="text-[10px] sm:text-xs font-mono text-yellow-400 bg-agency-dark px-3 py-0.5 rounded-md border border-agency-border">https://www.bolgeyemek.com</span>
+                                </div>
+                            </div>
+                            <div class="h-44 sm:h-48 bg-gradient-to-br from-yellow-950/40 via-slate-950 to-amber-950/40 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[radial-gradient(#eab308_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                                <span class="text-4xl mb-2">🍲</span>
+                                <span class="text-base font-extrabold text-white tracking-wider">Bölge Yemek</span>
+                                <span class="text-xs text-yellow-400 font-mono mt-1">bolgeyemek.com</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <span class="text-[10px] font-bold text-yellow-400 uppercase tracking-widest bg-yellow-500/10 px-2.5 py-1 rounded-md border border-yellow-500/20">Gıda & Yemek</span>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mt-3">Bölge Yemek</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">Kurumsal yemek ve catering hizmetleri için modern web tasarımı.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6 pt-0">
+                        <a href="https://www.bolgeyemek.com" target="_blank" class="w-full py-3 rounded-xl bg-agency-dark border border-agency-border hover:border-yellow-500 text-yellow-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                            <span>Web Sitesine Git ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Topcuoğlu Peyzaj -->
+                <div class="bg-agency-card rounded-3xl border border-agency-border overflow-hidden shadow-2xl hover:border-lime-500/50 transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Tarayıcı Penceresi Mockup -->
+                        <div class="w-full bg-slate-950 border-b border-agency-border">
+                            <div class="bg-slate-900 px-4 py-2.5 flex items-center space-x-2 border-b border-agency-border/50">
+                                <div class="flex space-x-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                                </div>
+                                <div class="flex-1 text-center">
+                                    <span class="text-[10px] sm:text-xs font-mono text-lime-400 bg-agency-dark px-3 py-0.5 rounded-md border border-agency-border">https://www.topcuoglupeyzaj.com.tr</span>
+                                </div>
+                            </div>
+                            <div class="h-44 sm:h-48 bg-gradient-to-br from-lime-950/40 via-slate-950 to-emerald-950/40 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[radial-gradient(#84cc16_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                                <span class="text-4xl mb-2">🌿</span>
+                                <span class="text-base font-extrabold text-white tracking-wider">Topcuoğlu Peyzaj</span>
+                                <span class="text-xs text-lime-400 font-mono mt-1">topcuoglupeyzaj.com.tr</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <span class="text-[10px] font-bold text-lime-400 uppercase tracking-widest bg-lime-500/10 px-2.5 py-1 rounded-md border border-lime-500/20">Peyzaj & Tasarım</span>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mt-3">Topcuoğlu Peyzaj</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">Çevre düzenleme ve peyzaj hizmetleri için şık kurumsal portfolyo.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6 pt-0">
+                        <a href="https://www.topcuoglupeyzaj.com.tr" target="_blank" class="w-full py-3 rounded-xl bg-agency-dark border border-agency-border hover:border-lime-500 text-lime-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                            <span>Web Sitesine Git ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Dumuç Döner -->
+                <div class="bg-agency-card rounded-3xl border border-agency-border overflow-hidden shadow-2xl hover:border-indigo-500/50 transition group flex flex-col justify-between">
+                    <div>
+                        <!-- Tarayıcı Penceresi Mockup -->
+                        <div class="w-full bg-slate-950 border-b border-agency-border">
+                            <div class="bg-slate-900 px-4 py-2.5 flex items-center space-x-2 border-b border-agency-border/50">
+                                <div class="flex space-x-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                                </div>
+                                <div class="flex-1 text-center">
+                                    <span class="text-[10px] sm:text-xs font-mono text-indigo-400 bg-agency-dark px-3 py-0.5 rounded-md border border-agency-border">https://www.dumucdoner.com</span>
+                                </div>
+                            </div>
+                            <div class="h-44 sm:h-48 bg-gradient-to-br from-indigo-950/40 via-slate-950 to-purple-950/40 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+                                <span class="text-4xl mb-2">🌯</span>
+                                <span class="text-base font-extrabold text-white tracking-wider">Dumuç Döner</span>
+                                <span class="text-xs text-indigo-400 font-mono mt-1">dumucdoner.com</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">Restoran & Gıda</span>
+                            <h3 class="text-lg sm:text-xl font-bold text-white mt-3">Dumuç Döner</h3>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">Lezzet durakları için dijital menü ve şık kurumsal tanıtım sitesi.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 sm:p-6 pt-0">
+                        <a href="https://www.dumucdoner.com" target="_blank" class="w-full py-3 rounded-xl bg-agency-dark border border-agency-border hover:border-indigo-500 text-indigo-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition">
+                            <span>Web Sitesine Git ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-agency-dark border-t border-agency-border py-10 text-center text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full bg-agency-yellow dot-seq-1"></div>
+                <div class="w-3 h-3 rounded-full bg-agency-lime -ml-1.5 dot-seq-2"></div>
+                <div class="w-3 h-3 rounded-full bg-agency-cyan -ml-1.5 dot-seq-3"></div>
+                <div class="w-3 h-3 rounded-full bg-agency-pink -ml-1.5 dot-seq-4"></div>
+                <span class="font-bold text-slate-300 ml-2">TAN MEDYA TASARIM</span>
+            </div>
+            <p>&copy; 2026 Tan Medya Tasarım. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Güven Sigorta & Aracılık | Test Şablonu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0b1329; color: #e2e8f0; line-height: 1.6; overflow-x: hidden; }
+
+        /* KURUMSAL SİGORTA MAVİSİ IŞIKLAR */
+        body::before {
+            content: ''; position: fixed; top: -100px; left: -100px; width: 400px; height: 400px;
+            background: rgba(37, 99, 235, 0.06); filter: blur(120px); z-index: -1; pointer-events: none;
+        }
+
+        /* --- 1. EN ÜSTTE TAN MEDYA TASARIM İMZASI (SABİT ÇAKILI) --- */
+        .top-tan-medya-bar {
+            position: sticky; top: 0; z-index: 10000;
+            background: linear-gradient(135deg, #1e3a8a, #0b1329); 
+            color: #60a5fa; text-align: center; padding: 10px 15px;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- 2. KALIN VE EKRANA SABİT KIRMIZI UYARI BANNERİ --- */
+        .sticky-test-banner {
+            position: sticky; top: 37px; z-index: 9999;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: #fff; text-align: center; padding: 12px 15px;
+            font-size: 0.85rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+            border-bottom: 3px solid #7f1d1d;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+        }
+
+        /* ÜST MENÜ */
+        header {
+            background: rgba(11, 19, 41, 0.9); backdrop-filter: blur(10px);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 83px; z-index: 100;
+        }
+        .logo { font-size: 1.1rem; font-weight: 700; color: #60a5fa; display: flex; align-items: center; gap: 8px; }
+        .back-btn { background: rgba(255,255,255,0.1); color: #fff; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-size: 0.80rem; transition: 0.3s; white-space: nowrap; }
+        .back-btn:hover { background: #2563eb; color: #fff; }
+
+        /* HERO BÖLÜMÜ */
+        .hero {
+            position: relative; padding: 90px 20px; text-align: center;
+            background: linear-gradient(135deg, rgba(11,19,41,0.85), rgba(30,58,138,0.95)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') center/cover;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 15px; }
+        .hero h1 span { color: #60a5fa; text-shadow: 0 0 20px rgba(96,165,250,0.3); }
+        .hero p { color: #93c5fd; font-size: 1.05rem; max-width: 700px; margin: 0 auto 25px auto; }
+        
+        .hero-btn {
+            background: #2563eb; color: #fff; padding: 12px 28px; border-radius: 30px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+        }
+        .hero-btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+        /* ANLAŞMALI SİGORTA ŞİRKETLERİ LOGO ALANI */
+        .partners-section { background: #070d1d; padding: 40px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .partners-section h3 { font-size: 1.1rem; color: #93c5fd; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .partners-grid {
+            max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; align-items: center;
+        }
+        .partner-logo-box {
+            background: #111c38; border: 1px solid rgba(255,255,255,0.06); padding: 15px; border-radius: 10px;
+            font-weight: 700; color: #cbd5e1; font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .partner-logo-box:hover { border-color: #3b82f6; color: #fff; transform: translateY(-3px); }
+
+        /* ANA İÇERİK */
+        .main-container {
+            max-width: 1200px; margin: 50px auto; padding: 0 20px;
+            display: grid; grid-template-columns: 2fr 1fr; gap: 35px;
+        }
+
+        .section-title { font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 25px; border-left: 4px solid #2563eb; padding-left: 12px; display: flex; align-items: center; gap: 10px; }
+
+        /* SİGORTA BRANŞLARI (GALERİ KARTLARI) */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .gallery-card {
+            background: #111c38; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden;
+            transition: transform 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .gallery-card:hover { transform: translateY(-5px); border-color: #2563eb; }
+        .gallery-card img { width: 100%; height: 180px; object-fit: cover; }
+        .gallery-body { padding: 18px; }
+        .gallery-body h3 { font-size: 1.05rem; color: #fff; margin-bottom: 5px; }
+        .gallery-body p { font-size: 0.8rem; color: #94a3b8; margin-bottom: 10px; }
+        .price { color: #60a5fa; font-weight: 700; font-size: 0.95rem; }
+
+        /* İLETİŞİM KUTUSU */
+        .info-box {
+            background: #111c38; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 25px; margin-bottom: 30px;
+        }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-item i { color: #2563eb; font-size: 1.2rem; margin-top: 3px; background: rgba(37,99,235,0.1); padding: 10px; border-radius: 8px; }
+        .info-item h4 { font-size: 0.9rem; color: #fff; margin-bottom: 2px; }
+        .info-item p { font-size: 0.85rem; color: #94a3b8; word-break: break-word; }
+
+        /* SİTE İÇİ WHATSAPP TEKLİF AL */
+        .wa-widget {
+            background: #111c38; border: 1px solid rgba(37,211,102,0.3); border-radius: 14px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.1);
+        }
+        .wa-header { background: #25D366; color: #fff; padding: 14px 18px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+        .wa-body { padding: 20px; }
+        .wa-body p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px; }
+        .wa-input {
+            width: 100%; background: #0b1329; border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 12px; resize: none; outline: none;
+            transition: 0.3s;
+        }
+        .wa-input:focus { border-color: #25D366; box-shadow: 0 0 10px rgba(37,211,102,0.2); }
+        .wa-send-btn {
+            background: #25D366; color: #fff; border: none; width: 100%; padding: 12px;
+            border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .wa-send-btn:hover { background: #20ba5a; transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer {
+            background: #050914; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;
+            padding: 30px 20px; margin-top: 60px; font-size: 0.85rem; color: #64748b;
+        }
+
+        /* MOBİL UYUM */
+        @media(max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; gap: 30px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 60px 15px; }
+            .sticky-test-banner { font-size: 0.75rem; padding: 10px 8px; }
+            .top-tan-medya-bar { font-size: 0.7rem; padding: 8px 8px; }
+            header { top: 73px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. EN ÜSTTE TAN MEDYA TASARIM İMZASI (SABİT) -->
+    <div class="top-tan-medya-bar">
+        ✨ BU ŞABLON TAN MEDYA TASARIM TARAFINDAN HAZIRLANMIŞTIR.
+    </div>
+
+    <!-- 2. KALIN VE EKRANA SABİT KIRMIZI UYARI BANNERİ -->
+    <div class="sticky-test-banner">
+        ⚠️ DİKKAT: BU SAYFA BİR TEST ŞABLONUDUR, GERÇEK BİR SİGORTA ACENTESİ DEĞİLDİR!
+    </div>
+
+    <!-- ÜST MENÜ -->
+    <header>
+        <div class="logo"><i class="fa-solid fa-shield-halved" style="color: #60a5fa;"></i> Güven Sigorta</div>
+        <a href="../../sablonlar.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Şablonlara Dön</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Geleceğinizi ve Varlıklarınızı <span>En Uygun Tekliflerle Güvenceye Alın</span></h1>
+        <p>25+ anlaşmalı sigorta şirketinden en iyi kasko, trafik, konut ve sağlık tekliflerini tek tıkla karşılaştırın.</p>
+        <a href="#teklifBolumu" class="hero-btn"><i class="fa-solid fa-file-invoice-dollar"></i> Hemen Teklif Al</a>
+    </section>
+
+    <!-- ANLAŞMALI SİGORTA ŞİRKETLERİ LOGO ALANI -->
+    <div class="partners-section">
+        <h3>Anlaşmalı Olduğumuz Başlıca Sigorta Şirketleri</h3>
+        <div class="partners-grid">
+            <div class="partner-logo-box"><i class="fa-solid fa-building-shield"></i> Anadolu Sigorta</div>
+            <div class="partner-logo-box"><i class="fa-solid fa-shield"></i> Allianz Sigorta</div>
+            <div class="partner-logo-box"><i class="fa-solid fa-certificate"></i> Mapfre Sigorta</div>
+            <div class="partner-logo-box"><i class="fa-solid fa-heart-pulse"></i> Acıbadem Sigorta</div>
+            <div class="partner-logo-box"><i class="fa-solid fa-car-burst"></i> Sompo Sigorta</div>
+            <div class="partner-logo-box"><i class="fa-solid fa-star"></i> Türkiye Sigorta</div>
+        </div>
+    </div>
+
+    <!-- ANA İÇERİK -->
+    <main class="main-container" id="teklifBolumu">
+        
+        <!-- SOL TARAF: SİGORTA BRANŞLARI (GALERİ) -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-list-check" style="color: #2563eb;"></i> Sigorta Branşlarımız</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=500&q=80" alt="Kasko">
+                    <div class="gallery-body">
+                        <h3>Kasko Sigortası</h3>
+                        <p>Aracınızı kaza, hırsızlık, doğal afet ve yangına karşı tam güvenceye alın.</p>
+                        <div class="price">25+ Şirketten Teklif</div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=500&q=80" alt="Trafik Sigortası">
+                    <div class="gallery-body">
+                        <h3>Zorunlu Trafik Sigortası</h3>
+                        <p>Yasal zorunluluğunuzu en uygun fiyat garantisiyle hemen yenileyin.</p>
+                        <div class="price">En Uygun Fiyat</div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=500&q=80" alt="Konut Sigortası">
+                    <div class="gallery-body">
+                        <h3>Konut & DASK Sigortası</h3>
+                        <p>Evinizi, eşyalarınızı ve deprem riskine karşı yuvanızı koruma altına alın.</p>
+                        <div class="price">Geniş Teminat</div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80" alt="Sağlık Sigortası">
+                    <div class="gallery-body">
+                        <h3>Tamamlayıcı Sağlık (TSS)</h3>
+                        <p>Özel hastanelerde fark ücreti ödemeden kaliteli sağlık hizmeti alın.</p>
+                        <div class="price">Kişiye Özel Plan</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SAĞ TARAF: İLETİŞİM, KONUM VE WHATSAPP TEKLİF AL -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-map-location-dot" style="color: #2563eb;"></i> İletişim & Ofis</h2>
+            
+            <div class="info-box">
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Acente Ofisi</h4>
+                        <p>Söğütözü Caddesi, Koç Kuleleri Kat: 8, Çankaya / Ankara</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Teklif / Destek Hattı</h4>
+                        <p>0501 090 17 22</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Çalışma Saatleri</h4>
+                        <p>Pazartesi - Cumartesi: 09:00 - 18:30</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SİTE İÇİNDEN DİREKT WHATSAPP TEKLİF AL -->
+            <div class="wa-widget">
+                <div class="wa-header">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hemen Teklif Al / Poliçe Yenile
+                </div>
+                <div class="wa-body">
+                    <p>Araç plakanızı ve TC kimlik numaranızı (veya sigorta türünü) yazarak anında fiyat teklifi isteyin:</p>
+                    
+                    <textarea id="userQuestion" class="wa-input" rows="3" placeholder="Örn: 06 ABC 123 plaka aracıma kasko ve trafik sigortası teklifi almak istiyorum."></textarea>
+                    
+                    <button class="wa-send-btn" onclick="sendToWhatsApp()">
+                        <i class="fa-solid fa-paper-plane"></i> WhatsApp ile Teklif Al
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Güven Sigorta & Aracılık Hizmetleri. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <!-- WHATSAPP BAĞLANTI SCRİPTİ -->
+    <script>
+        function sendToWhatsApp() {
+            const questionText = document.getElementById('userQuestion').value.trim();
+            const phoneNumber = "905010901722";
+
+            if(questionText === "") {
+                alert("Lütfen araç veya sigorta detayınızı yazın.");
+                return;
+            }
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Sigorta Teklif Talebi (Web Sitesi Üzerinden): " + questionText)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+
+</body>
+</html>

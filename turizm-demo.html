@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Turizm & Seyahat | Lüks Tatil ve Tur Paketleri</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49'
+                        },
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04'
+                        },
+                        deepDark: {
+                            900: '#0f172a',
+                            950: '#030712'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-deepDark-950 text-slate-100 antialiased selection:bg-gold-500 selection:text-deepDark-950">
+
+    <!-- 1. SABİT UYARI BANTI (KIRMIZI) -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wider shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Turizm Acentesi Değildir.</span>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <header class="fixed top-8 sm:top-10 left-0 right-0 z-40 bg-deepDark-900/90 backdrop-blur-md border-b border-sky-900/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ocean-800 to-ocean-950 border border-gold-500/40 flex items-center justify-center text-gold-400 font-serif font-bold text-xl shadow-md">
+                    H
+                </div>
+                <div>
+                    <span class="block font-serif text-base sm:text-lg font-bold tracking-wider text-white group-hover:text-gold-400 transition-colors">HORIZON</span>
+                    <span class="block text-[10px] sm:text-xs text-gold-500 uppercase tracking-widest font-semibold">Turizm & Seyahat</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="text-gold-400 hover:text-gold-300 transition-colors">Ana Sayfa</a>
+                <a href="#turlar" class="text-slate-300 hover:text-gold-400 transition-colors">Tur Paketleri</a>
+                <a href="#neden-biz" class="text-slate-300 hover:text-gold-400 transition-colors">Neden Biz?</a>
+                <a href="#yorumlar" class="text-slate-300 hover:text-gold-400 transition-colors">Yorumlar</a>
+                <a href="#iletisim" class="text-slate-300 hover:text-gold-400 transition-colors">İletişim</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#iletisim" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-deepDark-950 font-bold text-xs sm:text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg hover:shadow-gold-500/20">
+                    Rezervasyon
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-200 hover:text-gold-400 focus:outline-none text-2xl p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deepDark-900 border-b border-sky-900/30 px-6 py-6 space-y-4">
+            <a href="#hero" class="block text-gold-400 font-medium py-1">Ana Sayfa</a>
+            <a href="#turlar" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Tur Paketleri</a>
+            <a href="#neden-biz" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Neden Biz?</a>
+            <a href="#yorumlar" class="block text-slate-300 hover:text-gold-400 font-medium py-1">Yorumlar</a>
+            <a href="#iletisim" class="block text-slate-300 hover:text-gold-400 font-medium py-1">İletişim</a>
+            <div class="pt-2">
+                <a href="#iletisim" class="block text-center w-full py-3 rounded-full bg-gold-500 text-deepDark-950 font-bold text-sm">Rezervasyon Yap</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION WITH SEARCH WIDGET -->
+    <section id="hero" class="relative pt-36 md:pt-48 pb-32 bg-gradient-to-b from-deepDark-900 via-ocean-950 to-deepDark-950 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#facc15_1px,transparent_1px)] [background-size:40px_40px]"></div>
+        <div class="absolute top-1/4 right-10 w-96 h-96 bg-ocean-800/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ocean-800/40 border border-sky-600/30 text-gold-400 text-xs sm:text-sm font-medium tracking-wide">
+                    <i class="fa-solid fa-compass"></i> Dünyayı Keşfetmeye Hazır Mısınız?
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
+                    Hayalinizdeki Tatil İçin <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-500">Doğru Adrestesiniz</span>
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+                    Kapadokya'nın balonlarından Karadeniz'in yemyeşil yaylalarına, Ege'nin masmavi koylarından Avrupa rüyasına kadar unutulmaz rotalar sizi bekliyor.
+                </p>
+            </div>
+
+            <!-- Tour Search Widget -->
+            <div class="mt-12 max-w-4xl mx-auto bg-deepDark-900/90 backdrop-blur-xl border border-sky-900/40 p-4 sm:p-6 rounded-3xl shadow-2xl">
+                <form onsubmit="handleSearch(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
+                    <div>
+                        <label class="block text-[11px] font-semibold text-gold-400 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-location-dot mr-1"></i> Destinasyon</label>
+                        <select class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>Tüm Rotalar</option>
+                            <option>Kapadokya</option>
+                            <option>Karadeniz Yaylaları</option>
+                            <option>Ege & Akdeniz Mavi Tur</option>
+                            <option>Avrupa Rüyası</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-semibold text-gold-400 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-calendar mr-1"></i> Tarih Aralığı</label>
+                        <select class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>Bu Ay (Mayıs 2026)</option>
+                            <option>Önümüzdeki Ay (Haziran 2026)</option>
+                            <option>Yaz Sezonu (Temmuz - Ağustos)</option>
+                            <option>Sonbahar Dönemi</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-semibold text-gold-400 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-users mr-1"></i> Yolcu Sayısı</label>
+                        <select class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                            <option>1 Kişi (Yetişkin)</option>
+                            <option>2 Kişi (Balayı / Çift)</option>
+                            <option>3-4 Kişi (Aile / Grup)</option>
+                            <option>5+ Kişi (Grup Turu)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end pt-2 sm:pt-0">
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-deepDark-950 font-bold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass"></i> Tur Ara
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED TOUR PACKAGES SECTION -->
+    <section id="turlar" class="py-24 bg-deepDark-900/60 border-t border-b border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ocean-800/40 border border-sky-600/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                    Özel Rotalarımız
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    En Çok Tercih Edilen Popüler Tur Paketleri
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Konforlu otel konaklamaları, profesyonel rehberler ve zengin içerikli programlarla hayalinizdeki tatili yaşayın.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Tour 1 -->
+                <div class="bg-deepDark-900 border border-sky-900/40 rounded-2xl overflow-hidden shadow-xl group hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://placehold.co/600x400/0c4a6e/facc15?text=Kapadokya+Turu" alt="Kapadokya" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-deepDark-950/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-400 text-xs font-semibold">
+                                3 Gece 4 Gün
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-hotel text-gold-400 mr-1"></i> Mağara Otel</span>
+                                <span><i class="fa-solid fa-plane text-gold-400 mr-1"></i> Ulaşım Dahil</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                                Büyülü Kapadokya Turu
+                            </h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Balon turu keyfi, peri bacaları gezisi, yer altı şehirleri ve unutulmaz gün batımı manzaraları.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800 mt-4">
+                        <div>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-widest">Kişi Başı</span>
+                            <span class="text-lg font-serif font-bold text-gold-400">₺8.900'den başlayan</span>
+                        </div>
+                        <a href="#iletisim" class="px-4 py-2 rounded-xl bg-ocean-900 hover:bg-gold-500 hover:text-deepDark-950 text-slate-200 text-xs font-bold transition-all border border-sky-800/50">
+                            İncele
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tour 2 -->
+                <div class="bg-deepDark-900 border border-sky-900/40 rounded-2xl overflow-hidden shadow-xl group hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://placehold.co/600x400/0c4a6e/facc15?text=Karadeniz+Yaylalari" alt="Karadeniz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-deepDark-950/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-400 text-xs font-semibold">
+                                5 Gece 6 Gün
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-mountain text-gold-400 mr-1"></i> Yayla Turu</span>
+                                <span><i class="fa-solid fa-bus text-gold-400 mr-1"></i> VIP Otobüs</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                                Karadeniz & Yaylalar
+                            </h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Ayder, Uzungöl, Borçka Karagöl ve eşsiz doğa turlarıyla yeşilin her tonunu keşfedin.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800 mt-4">
+                        <div>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-widest">Kişi Başı</span>
+                            <span class="text-lg font-serif font-bold text-gold-400">₺12.500'den başlayan</span>
+                        </div>
+                        <a href="#iletisim" class="px-4 py-2 rounded-xl bg-ocean-900 hover:bg-gold-500 hover:text-deepDark-950 text-slate-200 text-xs font-bold transition-all border border-sky-800/50">
+                            İncele
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tour 3 -->
+                <div class="bg-deepDark-900 border border-sky-900/40 rounded-2xl overflow-hidden shadow-xl group hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://placehold.co/600x400/0c4a6e/facc15?text=Mavi+Tur+Koylar" alt="Mavi Tur" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-deepDark-950/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-400 text-xs font-semibold">
+                                4 Gece 5 Gün
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-ship text-gold-400 mr-1"></i> Yat / Gulet</span>
+                                <span><i class="fa-solid fa-water text-gold-400 mr-1"></i> Her Şey Dahil</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                                Ege & Akdeniz Mavi Tur
+                            </h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Göcek, Bodrum ve Fethiye'nin eşsiz koylarında lüks teknelerle masmavi bir yolculuk.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800 mt-4">
+                        <div>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-widest">Kişi Başı</span>
+                            <span class="text-lg font-serif font-bold text-gold-400">₺15.900'den başlayan</span>
+                        </div>
+                        <a href="#iletisim" class="px-4 py-2 rounded-xl bg-ocean-900 hover:bg-gold-500 hover:text-deepDark-950 text-slate-200 text-xs font-bold transition-all border border-sky-800/50">
+                            İncele
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tour 4 -->
+                <div class="bg-deepDark-900 border border-sky-900/40 rounded-2xl overflow-hidden shadow-xl group hover:border-gold-500/60 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://placehold.co/600x400/0c4a6e/facc15?text=Avrupa+Ruyasi+Turu" alt="Avrupa Turu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-3 right-3 bg-deepDark-950/80 backdrop-blur-md px-3 py-1 rounded-full text-gold-400 text-xs font-semibold">
+                                7 Gece 8 Gün
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fa-solid fa-passport text-gold-400 mr-1"></i> Vize Desteği</span>
+                                <span><i class="fa-solid fa-city text-gold-400 mr-1"></i> 5 Şehir</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-white text-xl group-hover:text-gold-400 transition-colors">
+                                Büyük Avrupa Rüyası
+                            </h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                Paris, Roma, Venedik, Prag ve Viyana'yı kapsayan muhteşem kültür ve sanat turu.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-800 mt-4">
+                        <div>
+                            <span class="block text-[10px] text-slate-400 uppercase tracking-widest">Kişi Başı</span>
+                            <span class="text-lg font-serif font-bold text-gold-400">₺24.500'den başlayan</span>
+                        </div>
+                        <a href="#iletisim" class="px-4 py-2 rounded-xl bg-ocean-900 hover:bg-gold-500 hover:text-deepDark-950 text-slate-200 text-xs font-bold transition-all border border-sky-800/50">
+                            İncele
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. WHY CHOOSE US SECTION -->
+    <section id="neden-biz" class="py-24 bg-deepDark-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ocean-800/40 border border-sky-600/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        Güvenilir Seyahat Deneyimi
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Neden Horizon Turizm'i Seçmelisiniz?
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Yılların verdiği tecrübe ve uzman kadromuzla tatilinizi sorunsuz, konforlu ve unutulmaz kılıyoruz. Müşteri memnuniyetini her zaman en üst sırada tutuyoruz.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="bg-deepDark-900 p-4 rounded-xl border border-slate-800">
+                            <span class="block font-serif font-bold text-gold-400 text-3xl">12+</span>
+                            <span class="block text-xs text-slate-400 mt-1">Yıllık Sektör Tecrübesi</span>
+                        </div>
+                        <div class="bg-deepDark-900 p-4 rounded-xl border border-slate-800">
+                            <span class="block font-serif font-bold text-gold-400 text-3xl">18.000+</span>
+                            <span class="block text-xs text-slate-400 mt-1">Mutlu Seyahat Sever</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-deepDark-900 border border-sky-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-ocean-900 text-gold-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">Güvenli Rezervasyon</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Tursab güvencesiyle yasal, sertifikalı ve güvenli ödeme altyapısıyla tatilinizi planlayın.
+                        </p>
+                    </div>
+
+                    <div class="bg-deepDark-900 border border-sky-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-ocean-900 text-gold-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">Profesyonel Rehberler</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Bölgeyi en iyi tanıyan, lisanslı ve deneyimli tur rehberlerimizle her an bilgi dolusunuz.
+                        </p>
+                    </div>
+
+                    <div class="bg-deepDark-900 border border-sky-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-ocean-900 text-gold-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">7/24 Canlı Destek</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Seyahatiniz süresince ve öncesinde her türlü soru ve ihtiyacınızda operasyon ekibimiz yanınızda.
+                        </p>
+                    </div>
+
+                    <div class="bg-deepDark-900 border border-sky-900/40 p-6 rounded-xl space-y-3">
+                        <div class="w-12 h-12 rounded-lg bg-ocean-900 text-gold-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">En İyi Fiyat Garantisi</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            Lüks oteller ve kaliteli ulaşım imkanlarını en avantajlı fiyatlarla sizlere sunuyoruz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TESTIMONIALS SECTION -->
+    <section id="yorumlar" class="py-24 bg-deepDark-900/60 border-t border-sky-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ocean-800/40 border border-sky-600/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                    Misafir Yorumları
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">
+                    Gezginlerimiz Bizim İçin Ne Dediler?
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Horizon Turizm ile tura katılan değerli misafirlerimizin deneyimleri.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-deepDark-900 border border-sky-900/40 p-8 rounded-2xl shadow-xl space-y-4">
+                    <div class="flex items-center gap-1 text-gold-400 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+                        "Kapadokya turuna katıldık. Otel seçimi, rehberimizin bilgisi ve balon turu organizasyonu tek kelimeyle kusursuzdu. Teşekkürler Horizon!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-ocean-800 text-gold-400 font-bold flex items-center justify-center text-sm">
+                            E.K
+                        </div>
+                        <div>
+                            <h4 class="text-white text-xs font-semibold">Elif Kaya</h4>
+                            <p class="text-[10px] text-slate-400">Kapadokya Turu Misafiri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-deepDark-900 border border-sky-900/40 p-8 rounded-2xl shadow-xl space-y-4">
+                    <div class="flex items-center gap-1 text-gold-400 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+                        "Karadeniz yaylaları turu hayatımın en keyifli tatillerinden biri oldu. Her detay düşünülmüştü, rehberimiz çok ilgiliydi. Kesinlikle tavsiye ederim."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-ocean-800 text-gold-400 font-bold flex items-center justify-center text-sm">
+                            M.D
+                        </div>
+                        <div>
+                            <h4 class="text-white text-xs font-semibold">Mert Demir</h4>
+                            <p class="text-[10px] text-slate-400">Karadeniz Turu Misafiri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-deepDark-900 border border-sky-900/40 p-8 rounded-2xl shadow-xl space-y-4">
+                    <div class="flex items-center gap-1 text-gold-400 text-sm">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed italic">
+                        "Avrupa rüyası turumuz vize sürecinden dönüşe kadar çok profesyonel yönetildi. 5 şehri de çok konforlu bir şekilde gezme fırsatı bulduk."
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 border-t border-slate-800">
+                        <div class="w-10 h-10 rounded-full bg-ocean-800 text-gold-400 font-bold flex items-center justify-center text-sm">
+                            Z.A
+                        </div>
+                        <div>
+                            <h4 class="text-white text-xs font-semibold">Zeynep Aydın</h4>
+                            <p class="text-[10px] text-slate-400">Avrupa Turu Misafiri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTACT / BOOKING FORM SECTION -->
+    <section id="iletisim" class="py-24 bg-deepDark-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ocean-800/40 border border-sky-600/30 text-gold-400 text-xs font-medium uppercase tracking-wider">
+                        Rezervasyon & Bilgi
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white leading-tight">
+                        Hayalinizdeki Tatil İçin Hemen Bize Ulaşın
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Formu doldurun, tur danışmanlarımız en kısa sürede sizinle iletişime geçerek rezervasyonunuzu oluştursun.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-ocean-900 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Merkez Ofis</h3>
+                                <p class="text-slate-400 text-xs mt-1">Büyükdere Cad. No: 194, Levent, Beşiktaş / İstanbul</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-ocean-900 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">Rezervasyon Hattı</h3>
+                                <p class="text-slate-400 text-xs mt-1">+90 (212) 444 00 99</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-ocean-900 text-gold-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold text-sm">E-Posta</h3>
+                                <p class="text-slate-400 text-xs mt-1">rezervasyon@horizonturizmornek.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-deepDark-900 border border-sky-900/40 rounded-2xl p-8 shadow-2xl">
+                    <h3 class="font-serif font-bold text-white text-2xl mb-2">Tur Rezervasyon Formu</h3>
+                    <p class="text-slate-400 text-xs mb-6">Katılmak istediğiniz turu seçin, detayları görüşelim.</p>
+
+                    <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Adınız Soyadınız *</label>
+                                <input type="text" required class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="Ahmet Yılmaz">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Telefon Numarası *</label>
+                                <input type="tel" required class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="0532 000 00 00">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">İlgilendiğiniz Tur *</label>
+                                <select class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                                    <option>Büyülü Kapadokya Turu</option>
+                                    <option>Karadeniz & Yaylalar</option>
+                                    <option>Ege & Akdeniz Mavi Tur</option>
+                                    <option>Büyük Avrupa Rüyası</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Katılımcı Sayısı *</label>
+                                <select class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors">
+                                    <option>1 Kişi</option>
+                                    <option>2 Kişi</option>
+                                    <option>3-4 Kişi</option>
+                                    <option>5+ Kişi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Özel Talepleriniz / Sorularınız *</label>
+                            <textarea rows="4" required class="w-full bg-deepDark-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 text-sm focus:outline-none focus:border-gold-500 transition-colors" placeholder="Oda tercihi, transfer isteği veya merak ettiğiniz detaylar..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-deepDark-950 font-bold text-sm hover:from-gold-400 hover:to-gold-500 transition-all shadow-lg">
+                            Rezervasyon Talebini Gönder
+                        </button>
+                    </form>
+
+                    <div id="success-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm text-center">
+                        <i class="fa-solid fa-circle-check text-base mb-1 block"></i>
+                        Rezervasyon talebiniz başarıyla alınmıştır. Müşteri temsilcilerimiz en kısa sürede sizinle iletişime geçecektir. (Örnek Tasarım Bildirimi)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PROFESSIONAL FOOTER WITH TAN MEDYA TASARIM BRANDING -->
+    <footer class="bg-deepDark-900 border-t border-sky-900/30 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-ocean-900 border border-gold-500/40 flex items-center justify-center text-gold-400 font-serif font-bold text-sm">
+                            H
+                        </div>
+                        <span class="font-serif text-base font-bold text-white tracking-wide">HORIZON TURİZM & SEYAHAT</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+                        Yurt içi ve yurt dışı lüks tur paketleri, profesyonel rehberlik ve güvenilir seyahat çözümleri.
+                    </p>
+                    <div class="text-xs text-red-400 font-semibold bg-red-950/50 p-2.5 rounded-lg border border-red-500/30 inline-block">
+                        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. Gerçek Turizm Acentesi Değildir.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-gold-400">Hızlı Linkler</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#hero" class="hover:text-gold-400 transition-colors">Ana Sayfa</a></li>
+                        <li><a href="#turlar" class="hover:text-gold-400 transition-colors">Tur Paketleri</a></li>
+                        <li><a href="#neden-biz" class="hover:text-gold-400 transition-colors">Neden Biz?</a></li>
+                        <li><a href="#yorumlar" class="hover:text-gold-400 transition-colors">Yorumlar</a></li>
+                        <li><a href="#iletisim" class="hover:text-gold-400 transition-colors">İletişim</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif font-bold text-white text-sm mb-4 uppercase tracking-wider text-gold-400">Yasal / Bilgi</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Tursab Belgeleri</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Gizlilik Politikası</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">KVKK Aydınlatma Metni</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">İptal & İade Koşulları</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Horizon Turizm & Seyahat Acentesi. Tüm hakları saklıdır. (Örnek Tasarım)</p>
+                <p class="mt-2 sm:mt-0">Profesyonel Web Tasarımı: <span class="text-gold-400 font-medium">Tan Medya Tasarım</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Search Form Handler
+        function handleSearch(event) {
+            event.preventDefault();
+            const turlarSection = document.getElementById('turlar');
+            turlarSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Booking Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-msg');
+            successMsg.classList.remove('hidden');
+            document.getElementById('booking-form').reset();
+            setTimeout(() => {
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anadolu Ekspres | Profesyonel Şehirlerarası Nakliyat & Taşımacılık</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- SABİT UYARI BANTI -->
+    <div class="bg-red-600 text-white text-center py-2 px-4 text-xs sm:text-sm font-bold tracking-wide uppercase sticky top-0 z-50 shadow-lg flex items-center justify-center gap-2">
+        <i class="fa-solid fa-triangle-exclamation animate-bounce"></i>
+        TAN MEDYA TASARIM TARAFINDAN ÖRNEK OLARAK TASARLANMIŞTIR. GERÇEK NAKLİYE / TAŞIMACILIK ŞİRKETİ DEĞİLDİR.
+    </div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-[37px] sm:top-[41px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-12 h-12 bg-amber-500 rounded-xl text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-truck-moving"></i>
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black tracking-wider uppercase text-white">ANADOLU<span class="text-amber-500">EKSPRES</span></span>
+                    <span class="block text-[10px] text-slate-400 tracking-widest uppercase">Şehirlerarası Nakliyat</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+                <a href="#hizmetler" class="hover:text-amber-500 transition">Hizmetler</a>
+                <a href="#surec" class="hover:text-amber-500 transition">Taşıma Süreci</a>
+                <a href="#filo" class="hover:text-amber-500 transition">Araç Filomuz</a>
+                <a href="#iletisim" class="hover:text-amber-500 transition">İletişim</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="flex items-center gap-4">
+                <a href="tel:08500000000" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold px-5 py-3 rounded-xl shadow-lg shadow-amber-500/20 flex items-center gap-2 transition transform hover:scale-105">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span class="hidden sm:inline">0850 000 00 00</span>
+                    <span class="sm:hidden">Ara</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-slate-900 to-slate-950 py-20 lg:py-28 overflow-hidden border-b border-slate-800">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-6">
+                        <i class="fa-solid fa-shield-halved text-amber-500"></i> %100 Sigortalı & Garantili Taşımacılık
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight uppercase mb-6">
+                        Şehirler Arası <br><span class="text-amber-500">Güvenli Taşımacılık</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                        Evden eve nakliyat, ofis taşımacılığı ve asansörlü araç filomuzla Türkiye’nin 81 iline profesyonel, sigortalı ve anahtar teslim nakliye hizmeti sunuyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#teklif" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-center font-bold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 transition">
+                            Hcretsiz Ekspertiz Al
+                        </a>
+                        <a href="tel:08500000000" class="bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white text-center font-bold px-8 py-4 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone text-amber-500"></i> Hemen Ara
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Fiyat / Teklif Formu -->
+                <div id="teklif" class="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl relative">
+                    <div class="absolute -top-3 -right-3 bg-amber-500 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                        Hızlı Teklif
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-amber-500"></i> Nakliye Fiyatı Hesapla
+                    </h3>
+                    <form onsubmit="event.preventDefault(); alert('Nakliye talebiniz başarıyla alınmıştır. En kısa sürede fiyat teklifi için sizinle iletişime geçilecektir.');" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Nereden (İl)</label>
+                                <input type="text" required placeholder="Örn: Ankara" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Nereye (İl)</label>
+                                <input type="text" required placeholder="Örn: İzmir" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Ev Tipi / Oda Sayısı</label>
+                            <select class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                                <option>1+1 Daire</option>
+                                <option>2+1 Daire</option>
+                                <option>3+1 Daire</option>
+                                <option>4+1 ve Üzeri / Villa</option>
+                                <option>Ofis / Büro Taşımacılığı</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">İletişim Numarası</label>
+                            <input type="tel" required placeholder="05XX XXX XX XX" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500">
+                        </div>
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-4 rounded-xl shadow-lg transition tracking-wide uppercase text-sm">
+                            Fiyat Teklifi İste
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HİZMETLERİMİZ -->
+    <section id="hizmetler" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amber-500 font-bold uppercase text-xs tracking-widest bg-amber-500/10 px-3 py-1 rounded-full">Profesyonel Çözümler</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-3 uppercase">Nakliye Hizmetlerimiz</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-2">Eşyalarınızı titizlikle ambalajlıyor, en güvenli şekilde yeni adresinize ulaştırıyoruz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kart 1 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition group">
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Evden Eve Nakliyat</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Mobilya demontajı, profesyonel ambalajlama ve sigortalı güvenceyle şehir içi ve şehirler arası ev taşıma.
+                    </p>
+                </div>
+                <!-- Kart 2 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition group">
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                        <i class="fa-solid fa-building-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Ofis & Büro Taşımacılığı</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        İş yerinizin aksamaması için planlı, dosya ve elektronik cihaz güvenliğine uygun hızlı ofis nakliyesi.
+                    </p>
+                </div>
+                <!-- Kart 3 -->
+                <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition group">
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                        <i class="fa-solid fa-elevator"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Asansörlü Taşımacılık</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Yüksek katlı binalar için bina dışından kurulan mobil asansör sistemleriyle hızlı ve risksiz taşıma.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEDEN BİZ? / SÜREÇ -->
+    <section id="surec" class="py-20 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-amber-500 font-bold uppercase text-xs tracking-widest bg-amber-500/10 px-3 py-1 rounded-full">Güvenilir Adımlar</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-3 uppercase">Nasıl Çalışıyoruz?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-amber-500 font-black text-3xl mb-4">01</div>
+                    <h4 class="text-lg font-bold text-white mb-2">Ekspertiz</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Eşyalarınız incelenir ve en uygun araç ile bütçe planlaması yapılır.</p>
+                </div>
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-amber-500 font-black text-3xl mb-4">02</div>
+                    <h4 class="text-lg font-bold text-white mb-2">Ambalajlama</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Tüm mobilya ve kırılacak eşyalarınız patpata sarılarak paketlenir.</p>
+                </div>
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-amber-500 font-black text-3xl mb-4">03</div>
+                    <h4 class="text-lg font-bold text-white mb-2">Güvenli Yükleme</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Çelik kasalı kapalı kamyonlarımıza eşyalarınız özenle istiflenir.</p>
+                </div>
+                <div class="bg-slate-950 border border-slate-800 p-6 rounded-2xl">
+                    <div class="text-amber-500 font-black text-3xl mb-4">04</div>
+                    <h4 class="text-lg font-bold text-white mb-2">Yeni Adreste Kurulum</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Yeni evinizde montaj ve yerleşim tamamlanarak teslim edilir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="iletisim" class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="text-xl font-black uppercase text-white">ANADOLU<span class="text-amber-500">EKSPRES</span></span>
+                <span class="text-xs text-slate-500">| Tüm Hakları Saklıdır © 2026</span>
+            </div>
+            <div class="text-center md:text-right text-xs text-slate-500">
+                Bu şablon <strong class="text-amber-500">Tan Medya Tasarım</strong> tarafından örnek amaçlı tasarlanmıştır.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
