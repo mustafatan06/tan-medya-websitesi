@@ -126,8 +126,8 @@
         <span>🎁</span>
     </div>
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-[37px] sm:top-[41px] z-50 backdrop-blur-xl bg-agency-dark/90 border-b border-agency-border">
+    <!-- Header / Navbar (Mobil Uyumlu Hamburger Menü Entegre Edildi) -->
+    <header class="sticky top-[37px] sm:top-[41px] z-50 backdrop-blur-xl bg-agency-dark/90 border-b border-agency-border" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="flex space-x-1 items-center">
@@ -146,6 +146,7 @@
                 </div>
             </div>
 
+            <!-- Masaüstü Navigasyon -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
                 <a href="index.html" class="text-agency-cyan font-semibold">Ana Sayfa</a>
                 <a href="referanslar.html" class="hover:text-agency-cyan transition">Referanslar</a>
@@ -159,8 +160,32 @@
                 <a href="https://wa.me/905010901722?text=Merhaba,%20Tan%20Medya%20Tasarım.%20Bilgi%20almak%20istiyorum." target="_blank" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-[11px] uppercase tracking-wider text-white shadow-lg transition">
                     <span>💬 WhatsApp</span>
                 </a>
-                <a href="#iletisim" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 font-semibold text-[11px] sm:text-xs uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
+                <a href="#iletisim" class="hidden sm:inline-flex px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-pink-500 font-semibold text-[11px] sm:text-xs uppercase tracking-wider text-white shadow-lg shadow-cyan-500/20 hover:opacity-95 transition">
                     TEKLİF AL 🚀
+                </a>
+
+                <!-- Mobil Hamburger Menü Butonu -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2.5 rounded-xl bg-agency-card border border-agency-border text-slate-300 hover:text-cyan-400 transition shadow-md">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobil Açılır Menü Paneli -->
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-agency-card border-b border-agency-border px-6 py-5 space-y-4 shadow-2xl">
+            <a href="index.html" class="block text-sm font-medium text-cyan-400">Ana Sayfa</a>
+            <a href="referanslar.html" class="block text-sm font-medium text-slate-300 hover:text-cyan-400">Referanslar</a>
+            <a href="sablonlar.html" class="block text-sm font-medium text-slate-300 hover:text-cyan-400">Şablon Kataloğu</a>
+            <a href="drone-cekimi.html" class="block text-sm font-medium text-slate-300 hover:text-cyan-400">Drone Çekimi</a>
+            <a href="#iletisim" class="block text-sm font-medium text-slate-300 hover:text-cyan-400">İletişim</a>
+            <div class="pt-3 border-t border-agency-border flex flex-col gap-2.5">
+                <a href="https://wa.me/905010901722?text=Merhaba,%20Tan%20Medya%20Tasarım.%20Bilgi%20almak%20istiyorum." target="_blank" class="w-full py-3 rounded-xl bg-emerald-600 text-center font-bold text-xs uppercase tracking-wider text-white shadow-md">
+                    <span>💬 WhatsApp İletişim</span>
+                </a>
+                <a href="#iletisim" @click="mobileMenuOpen = false" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-pink-500 text-center font-bold text-xs uppercase tracking-wider text-white shadow-md">
+                    <span>TEKLİF AL 🚀</span>
                 </a>
             </div>
         </div>
